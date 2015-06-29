@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using DomainLogic.Entities;
+using DomainLogic.Repositories;
+using Implementation.Repositories;
 
 namespace StorForStudentsWebApp.Controllers
 {
@@ -10,6 +9,12 @@ namespace StorForStudentsWebApp.Controllers
     {
         public ActionResult Index()
         {
+            using (StoreDbContext context = new StoreDbContext())
+            {
+                IItemsRepository repository = new ItemsRepository(context);
+                Item item = repository.GetById(1);
+            }
+
             return View();
         }
 
