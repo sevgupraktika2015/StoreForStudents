@@ -31,6 +31,20 @@ namespace Implementation.Repositories
             EntitySet = dbContext.Set<Item>();
         }
 
+        public void SaveItem(Item item)
+        {
+            EntitySet.Add(item);
+            DbContext.SaveChanges();
+        }
+
+        public void DeleteAll()
+        {
+            foreach (var item in EntitySet)
+            {
+                EntitySet.Remove(item);
+            }
+        }
+
         /// <summary>
         /// Returns item by its id
         /// </summary>

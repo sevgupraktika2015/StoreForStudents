@@ -13,15 +13,16 @@ namespace DomainLogic.Entities
             // for Entity Framework usage only
         }
 
-        public Item(string name, decimal price, int quantity, int id = 0): base(id)
+        public Item(string name, decimal price, int quantity,  int id = 0): base(id)
         {
             Asserts.IsNotNullOrEmpty(name, "name");
             Asserts.IsNotNegative(price, price.ToString());
             Asserts.IsNotNegative(quantity, quantity.ToString());
-
+            
             Name = name;
             Price = price;
             Quantity = quantity;
+            Id = id;
         }
     }
 }

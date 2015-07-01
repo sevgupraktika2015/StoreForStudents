@@ -1,4 +1,5 @@
 ﻿using System;
+using DomainLogic.Entities;
 using DomainLogic.Repositories;
 using Implementation.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
