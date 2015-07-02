@@ -1,4 +1,5 @@
-﻿using DomainLogic.Utilities;
+﻿using System;
+using DomainLogic.Utilities;
 
 namespace DomainLogic.Entities
 {
@@ -23,6 +24,20 @@ namespace DomainLogic.Entities
             Price = price;
             Quantity = quantity;
             Id = id;
+        }
+
+        public Boolean Equals(Item item1, Item item2)
+        {
+            Asserts.IsNotNull(item1, "First item should be not null");
+            Asserts.IsNotNull(item2, "Second item should be not null");
+
+            if (item1.Name.Equals(item2.Name)         &&
+                item1.Price.Equals(item2.Price)       &&
+                item1.Quantity.Equals(item2.Quantity) &&
+                item1.Id.Equals(item2.Id))
+                return true;
+            else
+                return false;
         }
     }
 }
