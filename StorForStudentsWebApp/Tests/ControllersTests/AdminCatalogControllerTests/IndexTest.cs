@@ -42,7 +42,7 @@ namespace Tests.ControllersTests.AdminCatalogControllerTests
             var controller = new AdminCatalogController();
             //Act
             var result = controller.Index() as ViewResult;
-            var resultItemsList = result.ViewBag.Items as List<Item>;
+            List<Item> resultItemsList = result.ViewBag.Items;
             //Assert
             for (int i = 0; i < resultItemsList.Count; i++)
             {

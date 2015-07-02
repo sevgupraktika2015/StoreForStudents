@@ -15,9 +15,9 @@ namespace StorForStudentsWebApp.Controllers
             using (var context = new StoreDbContext())
             {
                 ItemsRepository repository = new ItemsRepository(context);
-                ViewBag.Items = repository.EntitySet.ToArray();
+                ViewBag.Items = repository.EntitySet.ToArray().ToList();
             }
-            return View(db.Items.ToList());
+            return View();
         }
 
         protected override void Dispose(bool disposing)
