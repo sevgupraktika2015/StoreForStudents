@@ -225,16 +225,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DomainLogic\DomainLogic.csproj">
-      <Project>{AEC370CC-F579-4D00-874A-13BA87F7967E}</Project>
-      <Name>DomainLogic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Implementation\Implementation.csproj">
-      <Project>{8EA152DE-BB90-480F-A85A-D4B3E621A99E}</Project>
-      <Name>Implementation</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
