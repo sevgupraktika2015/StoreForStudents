@@ -1,6 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using System.Linq;
+
+using DomainLogic.Entities;
+using DomainLogic.Utilities;
+
+
+
 
 namespace DomainLogic.Utilities
 {
@@ -88,6 +95,19 @@ namespace DomainLogic.Utilities
         public static void IsNotNullOrEmpty(List<object> entities)
         {
             throw new NotImplementedException();
+        }
+
+        public static void AreEqual (Item item1, Item item2) {
+            Asserts.IsNotNull (item1, "item1 is null!");
+            Asserts.IsNotNull (item2, "item2 is null!");
+            if (item1.Name.CompareTo (item2.Name) != 0)
+                throw new FormatException ("Names not equals");
+            if (item1.Price != item2.Price)
+                throw new FormatException ("Prices not equals");
+            if (item1.Quantity != item2.Quantity)
+                throw new FormatException ("Quantities not equals");
+            if (item1.Id != item2.Id)
+                throw new FormatException ("Ids not equals");
         }
 
     }
