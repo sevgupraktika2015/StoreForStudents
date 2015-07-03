@@ -1,18 +1,22 @@
 ﻿@model StorForStudentsWebApp.Models.ItemModel
 
+@{
+    ViewBag.Title = "Create";
+}
+
 <h2>Index</h2>
 <form action="/Home/CreateUser" method="post">
     <div class="item">
         <label>Название товара</label>
-        <input name="Name" value="@model.Name" />
+        <input type="text" name="Name" />
     </div>
     <div class="item">
         <label>Цена</label>
-        <input name="Price" value="@model.Price" />
+        <input type="text" name="Price" />
     </div>
     <div class="item">
         <label>Количество</label>
-        <input name="LastName" value="@model.Quantity" />
+        <input type="text" name="LastName" />
     </div>
     <input type="submit" value="Отправить" />
 </form>
