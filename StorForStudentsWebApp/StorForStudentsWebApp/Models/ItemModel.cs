@@ -36,7 +36,7 @@ namespace StorForStudentsWebApp.Models
 
         }
 
-        public ItemModel(Item item)
+       public ItemModel(Item item)
         {
             Id = item.Id;
             Name = item.Name;

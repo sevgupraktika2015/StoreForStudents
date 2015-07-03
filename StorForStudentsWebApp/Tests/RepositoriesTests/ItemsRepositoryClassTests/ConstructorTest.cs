@@ -1,4 +1,5 @@
 ﻿using System;
+using DomainLogic.Entities;
 using DomainLogic.Repositories;
 using Implementation.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -26,6 +27,20 @@ namespace Tests.RepositoriesTests.ItemsRepositoryClassTests
         public void Constructor_null_exception()
         {
             new ItemsRepository(null);
+        }
+
+        [TestMethod]
+        public void UpdateItem_Context_Equal()
+        {
+            using (StoreDbContext context = new StoreDbContext())
+            {
+                IItemsRepository repository = new ItemsRepository(context);
+                Item item = repository.GetById(1);
+                item.Name = "nameChanged";
+                repository.AddItem(item);
+                Item getItem = repository.GetById(1);
+                Assert.AreEqual(item, getItem);
+            }
         }
     }
 }

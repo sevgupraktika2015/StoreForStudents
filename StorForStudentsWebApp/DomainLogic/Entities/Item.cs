@@ -4,9 +4,9 @@ namespace DomainLogic.Entities
 {
     public class Item : BaseEntity
     {
-        public string Name { get; protected set; }
-        public decimal Price { get; protected set; }
-        public int Quantity { get; protected set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
 
         public Item()
         {
@@ -18,12 +18,9 @@ namespace DomainLogic.Entities
             Asserts.IsNotNullOrEmpty(name, "name");
             Asserts.IsNotNegative(price, price.ToString());
             Asserts.IsNotNegative(quantity, quantity.ToString());
-
             Name = name;
             Price = price;
             Quantity = quantity;
         }
-
-        
     }
 }
