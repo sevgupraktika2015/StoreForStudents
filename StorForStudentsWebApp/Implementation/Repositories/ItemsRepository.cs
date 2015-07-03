@@ -35,7 +35,9 @@ namespace Implementation.Repositories
 
         public List<Item> GetAll()
         {
-            List<Item> ilist = EntitySet.ToList();
+            List<Item> ilist = new List<Item>();
+            if(Asserts.IsNotNull(EntitySet.ToList(),"List must be not null")==true)
+                ilist = EntitySet.ToList();
             return ilist;
         }
 

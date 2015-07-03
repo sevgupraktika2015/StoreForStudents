@@ -220,6 +220,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\AdminCatalog\Index.cshtml" />
     <Content Include="Views\AddItem\Create.cshtml" />
+    <Content Include="Views\AddItem\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
