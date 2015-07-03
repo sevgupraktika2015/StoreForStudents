@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using DomainLogic.Entities;
@@ -46,6 +47,13 @@ namespace Implementation.Repositories {
             return ilist;
         }
 
+        public List<Item> Find(string searchString)
+        {
+            List<Item> ilist =  new List<Item>();
+            if (!String.IsNullOrEmpty(searchString))
+                ilist = EntitySet.Where(s => s.Name.Contains(searchString)).ToList();
+            return ilist;
+        }
         /// <summary>
         /// Returns item by its id
         /// </summary>

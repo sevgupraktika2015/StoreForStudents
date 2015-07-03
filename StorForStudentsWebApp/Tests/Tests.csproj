@@ -72,6 +72,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ControllersTest\HomeControllerTests\HomeControllerIndexTest.cs" />
+    <Compile Include="ControllersTest\SearchControllerTests\SearchControllerIndexTest.cs" />
     <Compile Include="RepositoriesTests\ItemsRepositoryClassTests\ConstructorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

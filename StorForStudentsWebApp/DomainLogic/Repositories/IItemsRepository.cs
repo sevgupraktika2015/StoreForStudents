@@ -16,5 +16,6 @@ namespace DomainLogic.Repositories
         Item GetById(int id);
 
         List<Item> GetAll();
+        List<Item> Find(string searchString);
     }
 }
