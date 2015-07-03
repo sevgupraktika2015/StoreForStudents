@@ -2,6 +2,8 @@
 using DomainLogic.Entities;
 using DomainLogic.Repositories;
 using DomainLogic.Utilities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Implementation.Repositories
 {
@@ -29,6 +31,12 @@ namespace Implementation.Repositories
             Asserts.IsNotNull(dbContext, "dbContext");
             DbContext = dbContext;
             EntitySet = dbContext.Set<Item>();
+        }
+
+        public List<Item> GetAll()
+        {
+            List<Item> ilist = EntitySet.ToList();
+            return ilist;
         }
 
         /// <summary>
