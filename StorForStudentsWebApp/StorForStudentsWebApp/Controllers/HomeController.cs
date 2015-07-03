@@ -15,11 +15,10 @@ namespace StorForStudentsWebApp.Controllers
         public ActionResult Index () {
             using (var context = new StoreDbContext ()) {
                 ItemsRepository repository = new ItemsRepository (context);
-                ViewBag.Items = repository.EntitySet.ToList ();
+                //ViewBag.Items = repository.EntitySet.ToList ();
             }
             return View ();
         }
-        да, я уже понял
         
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using DomainLogic.Entities;
 using DomainLogic.Repositories;
 using DomainLogic.Utilities;
@@ -16,7 +18,7 @@ namespace Implementation.Repositories {
         /// <summary>
         /// List of entities (table from DB)
         /// </summary>
-        public DbSet<Item> EntitySet { get; private set; }
+        private DbSet<Item> EntitySet { get;  set; }
 
         /// <summary>
         /// Default constructor
@@ -37,6 +39,11 @@ namespace Implementation.Repositories {
             foreach (var item in EntitySet) {
                 EntitySet.Remove (item);
             }
+        }
+        public List<Item> GetAll()
+        {
+            List<Item> ilist = EntitySet.ToList();
+            return ilist;
         }
 
         /// <summary>

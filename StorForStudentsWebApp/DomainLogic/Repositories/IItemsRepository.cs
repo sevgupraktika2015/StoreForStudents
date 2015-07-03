@@ -1,4 +1,5 @@
-﻿using DomainLogic.Entities;
+﻿using System.Collections.Generic;
+using DomainLogic.Entities;
 
 namespace DomainLogic.Repositories
 {
@@ -13,5 +14,7 @@ namespace DomainLogic.Repositories
         /// <param name="id"></param>
         /// <returns></returns>
         Item GetById(int id);
+
+        List<Item> GetAll();
     }
 }
