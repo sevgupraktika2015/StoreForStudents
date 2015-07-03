@@ -1,7 +1,18 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿@model StorForStudentsWebApp.Models.ItemModel
 
 <h2>Index</h2>
-Здесь должен быть код добавления товара администратором в список товаров
+<form action="/Home/CreateUser" method="post">
+    <div class="item">
+        <label>Название товара</label>
+        <input name="Name" value="@model.Name" />
+    </div>
+    <div class="item">
+        <label>Цена</label>
+        <input name="Price" value="@model.Price" />
+    </div>
+    <div class="item">
+        <label>Количество</label>
+        <input name="LastName" value="@model.Quantity" />
+    </div>
+    <input type="submit" value="Отправить" />
+</form>
