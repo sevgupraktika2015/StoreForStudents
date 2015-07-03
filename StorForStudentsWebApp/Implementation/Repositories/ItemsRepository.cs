@@ -39,6 +39,29 @@ namespace Implementation.Repositories
             return ilist;
         }
 
+        public void SaveItem(Item item)
+        {
+            EntitySet.Add(item);
+            DbContext.SaveChanges();
+        }
+
+        public void DeleteAll(Item delitem)
+        {
+            foreach (var item in EntitySet)
+            {
+                if (Equals(item, delitem) == true)
+                    EntitySet.Remove(delitem);
+            }
+        }
+
+        public void DeleteAll()
+        {
+            foreach (var item in EntitySet)
+            {
+                EntitySet.Remove(item);
+            }
+        }
+
         /// <summary>
         /// Returns item by its id
         /// </summary>

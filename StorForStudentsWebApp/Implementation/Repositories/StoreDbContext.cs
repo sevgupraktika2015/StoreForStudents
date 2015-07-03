@@ -21,5 +21,7 @@ namespace Implementation.Repositories
             base.OnModelCreating(modelBuilder);
         }
 
+        public System.Data.Entity.DbSet<DomainLogic.Entities.Item> Items { get; set; }
+
     }
 }

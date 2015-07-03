@@ -13,5 +13,7 @@ namespace DomainLogic.Repositories
         /// <param name="id"></param>
         /// <returns></returns>
         Item GetById(int id);
+
+        void SaveItem(Item item);
     }
 }
