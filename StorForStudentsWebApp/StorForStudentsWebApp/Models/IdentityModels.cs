@@ -13,5 +13,7 @@ namespace StorForStudentsWebApp.Models
             : base("DefaultConnection")
         {
         }
+
+        public System.Data.Entity.DbSet<StorForStudentsWebApp.Models.ItemModel> ItemModels { get; set; }
     }
 }

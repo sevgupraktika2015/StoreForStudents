@@ -8,7 +8,7 @@ namespace DomainLogic.Entities
         public decimal Price { get; protected set; }
         public int Quantity { get; protected set; }
 
-        protected Item()
+        public Item()
         {
             // for Entity Framework usage only
         }
@@ -23,5 +23,7 @@ namespace DomainLogic.Entities
             Price = price;
             Quantity = quantity;
         }
+
+        
     }
 }

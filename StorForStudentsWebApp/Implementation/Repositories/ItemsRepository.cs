@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using DomainLogic.Entities;
 using DomainLogic.Repositories;
 using DomainLogic.Utilities;
@@ -39,6 +40,11 @@ namespace Implementation.Repositories
         public Item GetById(int id)
         {
             return EntitySet.Find(id);
+        }
+        public void AddItem(Item item)
+        {
+            EntitySet.AddOrUpdate(item);
+            DbContext.SaveChanges();
         }
     }
 }

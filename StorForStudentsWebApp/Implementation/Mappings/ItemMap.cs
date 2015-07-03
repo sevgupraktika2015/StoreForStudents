@@ -14,9 +14,9 @@ namespace Implementation.Mappings
             ToTable("Items");
             HasKey(x => x.Id);
             Property(x => x.Id).HasColumnName("Id");
-            Property(x => x.Name).HasColumnName("ItemName");
-            Property(x => x.Price).HasColumnName("PriceAmount");
-            Property(x => x.Quantity);
+            Property(x => x.Name).HasColumnName("Name");
+            Property(x => x.Price).HasColumnName("Price");
+            Property(x => x.Quantity).HasColumnName("Quantity");
         }
 
     }
