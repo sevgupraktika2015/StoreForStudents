@@ -45,7 +45,7 @@ namespace Implementation.Repositories
             DbContext.SaveChanges();
         }
 
-        public void DeleteAll(Item delitem)
+        public void DeleteItem(Item delitem)
         {
             foreach (var item in EntitySet)
             {

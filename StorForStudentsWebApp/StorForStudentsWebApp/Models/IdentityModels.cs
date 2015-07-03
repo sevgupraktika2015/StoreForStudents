@@ -15,5 +15,7 @@ namespace StorForStudentsWebApp.Models
         }
 
         public System.Data.Entity.DbSet<DomainLogic.Entities.Item> Items { get; set; }
+
+        public System.Data.Entity.DbSet<StorForStudentsWebApp.Models.ItemModel> ItemModels { get; set; }
     }
 }
