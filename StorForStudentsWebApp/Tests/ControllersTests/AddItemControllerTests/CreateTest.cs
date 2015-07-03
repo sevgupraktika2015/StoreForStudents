@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Web.Mvc;
+using DomainLogic.Entities;
+using DomainLogic.Utilities;
+using Implementation.Repositories;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StorForStudentsWebApp.Controllers;
+using StorForStudentsWebApp.Models;
+
+namespace Tests.ControllersTests.AddItemControllerTests
+{
+    [TestClass]
+    public class CreateTest
+    {
+        //NOTE: pattern for  naming of tests:  
+        //      <method name>_<input arguments>_<expected result>
+
+        [TestMethod]
+        public void Create_ItemModel_Null()
+        {
+            // Arrange
+            var controller = new AddItemController();
+            var itemModel = new ItemModel(){ Name="q", Price=12, Quantity=12};
+            List<Item> items = new List<Item>();
+            //Act
+            controller.Create(itemModel);
+            //Assert
+            
+        }
+    }
+}

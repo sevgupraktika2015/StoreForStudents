@@ -26,22 +26,17 @@ namespace StorForStudentsWebApp.Controllers
         //
         // POST: /AddItem/Create
         [HttpPost]
-        public ActionResult Create(ItemModel item)
+        public ActionResult Create(ItemModel initem)
         {
-            try
+            Item outitem;
+            // TODO: Add insert logic here
+            using (var context = new StoreDbContext())
             {
-                // TODO: Add insert logic here
-                using (var context = new StoreDbContext())
-                {
-                    ItemsRepository repository = new ItemsRepository(context);
-                    repository.SaveItem(item.ToItem());
-                }
-                return View();
+                ItemsRepository repository = new ItemsRepository(context);
+                outitem = initem.ToItem();
+                repository.SaveItem(outitem);
             }
-            catch
-            {
-                return View();
-            }
+            return View(new ItemModel(outitem));
         }
 
         //

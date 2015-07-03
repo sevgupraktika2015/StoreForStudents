@@ -86,6 +86,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ControllersTests\AddItemControllerTests\CreateTest.cs" />
     <Compile Include="ControllersTests\AdminCatalogControllerTests\IndexTest.cs" />
     <Compile Include="RepositoriesTests\ItemsRepositoryClassTests\ConstructorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,6 +110,7 @@
       <Name>StorForStudentsWebApp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
