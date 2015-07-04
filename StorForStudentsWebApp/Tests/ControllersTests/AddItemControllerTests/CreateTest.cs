@@ -24,11 +24,21 @@ namespace Tests.ControllersTests.AddItemControllerTests
             // Arrange
             var controller = new AddItemController();
             var itemModel = new ItemModel(){ Name="q", Price=12, Quantity=12};
-            List<Item> items = new List<Item>();
             //Act
-            controller.Create(itemModel);
+            var result = controller.Create(itemModel);
             //Assert
-            
+            Asserts.IsNotNull(result, "Should have returned a ViewResult");
+        }
+
+        [TestMethod]
+        public void Create_Null_Null()
+        {
+            // Arrange
+            var controller = new AddItemController();
+            //Act
+            var result = controller.Create(null);
+            //Assert
+            Asserts.IsNotNull(result, "Should have returned a ViewResult");
         }
     }
 }

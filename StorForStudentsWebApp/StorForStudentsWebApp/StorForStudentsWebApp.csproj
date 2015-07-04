@@ -162,7 +162,7 @@
     <Compile Include="Controllers\AddItemController.cs" />
     <Compile Include="Controllers\AdminCatalogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\itemsVIewModel.cs" />
+    <Compile Include="Models\itemsVIewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Implementation.Repositories;
 using DomainLogic.Entities;
 using DomainLogic.Repositories;
+using DomainLogic.Utilities;
 using StorForStudentsWebApp.Models;
 
 namespace StorForStudentsWebApp.Controllers
@@ -28,15 +29,25 @@ namespace StorForStudentsWebApp.Controllers
         [HttpPost]
         public ActionResult Create(ItemModel initem)
         {
-            Item outitem;
-            // TODO: Add insert logic here
-            using (var context = new StoreDbContext())
+            try
             {
-                ItemsRepository repository = new ItemsRepository(context);
-                outitem = initem.ToItem();
-                repository.SaveItem(outitem);
+                Asserts.IsNotNull(initem);
+                Item outitem;
+                // TODO: Add insert logic here
+                using (var context = new StoreDbContext())
+                {
+                    ItemsRepository repository = new ItemsRepository(context);
+                    outitem = initem.ConvertToItem();
+                    repository.SaveItem(outitem);
+                }
+                return View(new ItemModel(outitem));
+                //AdminCatalogController Admin = new AdminCatalogController();
+                //return Admin.Index();
             }
-            return View(new ItemModel(outitem));
+            catch
+            {
+                return View();
+            }
         }
 
         //

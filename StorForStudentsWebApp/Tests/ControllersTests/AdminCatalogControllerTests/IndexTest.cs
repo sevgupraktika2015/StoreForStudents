@@ -19,14 +19,11 @@ namespace Tests.ControllersTests.AdminCatalogControllerTests
         public void Index_returns_correct_view()
         {
             // Arrange
-            const string expectedViewName = "Index";
             var controller = new AdminCatalogController();
             //Act
             var result = controller.Index() as ViewResult;
             //Assert
             Asserts.IsNotNull(result, "Should have returned a ViewResult");
-            Assert.AreEqual(expectedViewName, result.ViewName, "View should be {0}", expectedViewName);
-            
         }
 
         [TestMethod]
@@ -37,7 +34,7 @@ namespace Tests.ControllersTests.AdminCatalogControllerTests
             using (var context = new StoreDbContext())
             {
                 ItemsRepository repository = new ItemsRepository(context);
-                expectedItemsList = new List<Item>(repository.EntitySet.ToArray());
+                expectedItemsList = repository.GetAll();
             }
             var controller = new AdminCatalogController();
             //Act
