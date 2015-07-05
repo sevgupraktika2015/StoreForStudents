@@ -17,5 +17,8 @@ namespace DomainLogic.Repositories
 
         List<Item> GetAll();
         List<Item> Find(string searchString);
+        void SaveItem(Item item);
+        void DeleteItem(Item delitem);
+        void DeleteAll();
     }
 }

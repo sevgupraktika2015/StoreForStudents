@@ -36,6 +36,15 @@ namespace Implementation.Repositories {
             DbContext.SaveChanges ();
         }
 
+        public void DeleteItem(Item delitem)
+        {
+            foreach (var item in EntitySet)
+            {
+                if (Equals(item, delitem) == true)
+                    EntitySet.Remove(delitem);
+            }
+        }
+
         public void DeleteAll () {
             foreach (var item in EntitySet) {
                 EntitySet.Remove (item);
@@ -54,6 +63,7 @@ namespace Implementation.Repositories {
                 ilist = EntitySet.Where(s => s.Name.Contains(searchString)).ToList();
             return ilist;
         }
+
         /// <summary>
         /// Returns item by its id
         /// </summary>
