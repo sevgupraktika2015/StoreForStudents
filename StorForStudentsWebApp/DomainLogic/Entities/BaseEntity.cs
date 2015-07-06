@@ -26,7 +26,6 @@ namespace DomainLogic.Entities
         protected BaseEntity(int id)
         {
             Asserts.IsNotNegative(id, id.ToString());
-
             Id = id;
         }
     }

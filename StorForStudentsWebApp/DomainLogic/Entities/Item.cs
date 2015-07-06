@@ -8,12 +8,16 @@ namespace DomainLogic.Entities
         public decimal Price { get; set; }
         public int Quantity { get; set; }
 
+        public string Description { get; set; }
+        public string ImagePath { get; set; }
+
         public Item()
         {
             // for Entity Framework usage only
         }
 
-        public Item(string name, decimal price, int quantity, int id = 0): base(id)
+        public Item(string name, decimal price, int quantity, int id = 0, string Desc = "none",
+            string ImPath = "none"): base(id)
         {
             Asserts.IsNotNullOrEmpty(name, "name");
             Asserts.IsNotNegative(price, price.ToString());
@@ -21,6 +25,8 @@ namespace DomainLogic.Entities
             Name = name;
             Price = price;
             Quantity = quantity;
+            Description = Desc;
+            ImagePath = ImPath;
         }
     }
 }

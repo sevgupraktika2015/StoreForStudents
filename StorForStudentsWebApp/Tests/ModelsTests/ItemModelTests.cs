@@ -13,7 +13,7 @@ namespace Tests.ModelsTests
         {
             Item item = new Item("name", 12, 2, 2);
 
-            ItemModel itemdto = new ItemModel();
+            ItemModel itemdto = new ItemModel(item);
 
             Assert.IsNotNull(itemdto);
         }

@@ -15,6 +15,26 @@ namespace StorForStudentsWebApp.Controllers
             return View();
         }
 
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            using (StoreDbContext context = new StoreDbContext())
+            {
+                IItemsRepository repository = new ItemsRepository(context);
+                Item item = repository.GetById(1);
+                if (item == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                ItemModel itemDTO = new ItemModel(item);
+                return View(itemDTO);
+            }
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -65,4 +85,5 @@ namespace StorForStudentsWebApp.Controllers
             return View(itemDBO);
         }
     }
+
 }

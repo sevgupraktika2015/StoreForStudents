@@ -25,9 +25,12 @@ namespace StorForStudentsWebApp.Models
         [Required]
         [Range(1, Int16.MaxValue)]
         public int Quantity { get; set; }
+        public string Description { get; set; }
+
+        public string ImagePath { get; set; }
         public Item ConvertToItem()
         {
-            Item item = new Item(Name, Price, Quantity, Id);
+            Item item = new Item(Name, Price, Quantity, Id, Description, ImagePath);
             return item;
         }
 
@@ -38,10 +41,12 @@ namespace StorForStudentsWebApp.Models
 
        public ItemModel(Item item)
         {
-            Id = item.Id;
-            Name = item.Name;
-            Price = item.Price;
-            Quantity = item.Quantity;
+           Id = item.Id;
+           Name = item.Name;
+           Price = item.Price;
+           Quantity = item.Quantity;
+           Description = item.Description;
+           ImagePath = item.ImagePath;
         }
     }
 }
