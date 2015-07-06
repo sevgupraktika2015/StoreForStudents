@@ -1,8 +1,9 @@
+﻿using DomainLogic.Entities;
+using DomainLogic.Utilities;
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using DomainLogic.Entities;
 using System.ComponentModel.DataAnnotations;
 
 namespace StorForStudentsWebApp.Models
@@ -36,12 +37,23 @@ namespace StorForStudentsWebApp.Models
 
         }
 
-       public ItemModel(Item item)
+        public ItemModel(Item item)
         {
+            Asserts.IsNotNull(item);
             Id = item.Id;
             Name = item.Name;
             Price = item.Price;
             Quantity = item.Quantity;
+        }
+
+        public static List<ItemModel> ToModel(IList<Item> inlist)
+        {
+            List<ItemModel> outlist = new List<ItemModel>();
+            foreach(var item in inlist)
+            {
+                outlist.Add(new ItemModel(item));
+            }
+            return outlist;
         }
     }
 }

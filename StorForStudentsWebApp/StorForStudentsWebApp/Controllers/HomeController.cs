@@ -3,22 +3,17 @@ using System.Web.Mvc;
 using DomainLogic.Entities;
 using DomainLogic.Repositories;
 using Implementation.Repositories;
+using System.Linq;
 using StorForStudentsWebApp.Models;
+using System.Data.Entity;
 
 namespace StorForStudentsWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
-        {
-
-            return View();
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
@@ -63,6 +58,16 @@ namespace StorForStudentsWebApp.Controllers
                 }
             }
             return View(itemDBO);
+        }
+
+        public ActionResult Index() 
+        {
+            using (var context = new StoreDbContext()) 
+            {
+                ItemsRepository repository = new ItemsRepository(context);
+                //ViewBag.Items = repository.EntitySet.ToList ();
+            }
+            return View ();
         }
     }
 }
