@@ -39,11 +39,18 @@ namespace StorForStudentsWebApp.Models
 
         public ItemModel(Item item)
         {
-            Asserts.IsNotNull(item);
-            Id = item.Id;
-            Name = item.Name;
-            Price = item.Price;
-            Quantity = item.Quantity;
+            try
+            {
+                Asserts.IsNotNull(item);
+                Id = item.Id;
+                Name = item.Name;
+                Price = item.Price;
+                Quantity = item.Quantity;
+            }
+            catch
+            {
+
+            }
         }
 
         public static List<ItemModel> ToModel(IList<Item> inlist)

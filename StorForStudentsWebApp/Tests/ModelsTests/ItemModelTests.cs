@@ -19,7 +19,6 @@ namespace Tests.ModelsTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
         public void Constructor_null_exception()
         {
             new ItemModel(null);

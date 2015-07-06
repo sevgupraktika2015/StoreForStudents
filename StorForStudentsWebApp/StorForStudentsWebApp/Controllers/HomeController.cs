@@ -32,7 +32,7 @@ namespace StorForStudentsWebApp.Controllers
             using (StoreDbContext context = new StoreDbContext())
             {
                 IItemsRepository repository = new ItemsRepository(context);
-                Item item = repository.GetById(1);
+                Item item = repository.GetById(id.Value);
                 if (item == null)
                 {
                     return HttpNotFound();

@@ -3,6 +3,9 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StorForStudentsWebApp.Controllers;
 using StorForStudentsWebApp.Models;
+using DomainLogic.Entities;
+using Implementation.Repositories;
+using DomainLogic.Repositories;
 
 namespace Tests.ControllerTests
 {
@@ -13,9 +16,15 @@ namespace Tests.ControllerTests
         public void ControllerTest_Id_notNull()
         {
             var controller = new HomeController();
-            var result = controller.Edit(1) as ViewResult;
-            var product = (ItemModel) result.ViewData.Model;
-            Assert.IsNotNull(product.Name);
+            Item test = new Item("test", 1, 1);
+            using (var context = new StoreDbContext())
+            {
+                IItemsRepository repository = new ItemsRepository(context);
+                repository.SaveItem(test);
+            }
+            var result = controller.Edit(test.Id) as ViewResult;
+            var product = result.ViewData.Model as ItemModel;
+            Assert.IsNotNull(product);
         }
     }
 }
