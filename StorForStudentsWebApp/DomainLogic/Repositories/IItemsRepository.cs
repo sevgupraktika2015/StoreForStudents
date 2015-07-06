@@ -1,5 +1,5 @@
 ﻿using DomainLogic.Entities;
-
+using System.Collections.Generic;
 namespace DomainLogic.Repositories
 {
     /// <summary>
@@ -15,5 +15,11 @@ namespace DomainLogic.Repositories
         Item GetById(int id);
 
         void AddItem(Item item);
+
+        List<Item> Find(string searchString);
+
+        void DeleteAll();
+
+        void SaveItem(Item testItem);
     }
 }
