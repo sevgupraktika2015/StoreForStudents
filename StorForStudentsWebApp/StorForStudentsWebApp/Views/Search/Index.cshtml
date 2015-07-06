@@ -1,0 +1,31 @@
+﻿@model IEnumerable<StorForStudentsWebApp.Models.ItemModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @using (Html.BeginForm())
+    {
+        <p>
+            Name: @Html.TextBox("SearchString") <br/>
+            <input type="submit" value="Button for finding!"/>
+        </p>
+    }
+
+</p>
+<table class="table">
+    <tr class="tab-content">
+        <td>@Html.DisplayNameFor(model => model.Name)</td>
+        <td>@Html.DisplayNameFor(model => model.Price)</td>
+        <td>@Html.DisplayNameFor(model => model.Quantity)</td>
+    </tr>
+
+@foreach (var item in Model) {
+    @Html.Partial("FoundItems", item)
+}
+</table>
+

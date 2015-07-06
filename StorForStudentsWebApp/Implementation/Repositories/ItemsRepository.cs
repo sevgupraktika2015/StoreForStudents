@@ -1,5 +1,8 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Linq;
 using DomainLogic.Entities;
 using DomainLogic.Repositories;
 using DomainLogic.Utilities;
@@ -45,6 +48,28 @@ namespace Implementation.Repositories
         public void AddItem(Item item)
         {
             EntitySet.AddOrUpdate(item);
+            DbContext.SaveChanges();
+        }
+
+        public List<Item> Find(string searchString)
+        {
+            List<Item> ilist = new List<Item>();
+            if (!String.IsNullOrEmpty(searchString))
+                ilist = EntitySet.Where(s => s.Name.Contains(searchString)).ToList();
+            return ilist;
+        }
+
+        public void DeleteAll()
+        {
+            foreach (var item in EntitySet)
+            {
+                EntitySet.Remove(item);
+            }
+        }
+
+        public void SaveItem(Item testItem)
+        {
+            EntitySet.Add(testItem);
             DbContext.SaveChanges();
         }
     }
