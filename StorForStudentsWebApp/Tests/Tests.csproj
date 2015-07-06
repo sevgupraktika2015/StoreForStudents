@@ -101,8 +101,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ControllersTests\AddItemControllerTests\CreateTest.cs" />
-    <Compile Include="ControllersTests\AdminCatalogControllerTests\IndexTest.cs" />
+    <Compile Include="ControllersTest\AddItemControllerTests\CreateTest.cs" />
+    <Compile Include="ControllersTest\AdminCatalogControllerTests\IndexTest.cs" />
+    <Compile Include="ControllersTest\DeleteItemControllerTests\DeleteTest.cs" />
     <Compile Include="ControllersTest\HomeControllerTests\HomeControllerIndexTest.cs" />
     <Compile Include="ControllersTest\SearchControllerTests\SearchControllerIndexTest.cs" />
     <Compile Include="RepositoriesTests\ItemsRepositoryClassTests\ConstructorTest.cs" />

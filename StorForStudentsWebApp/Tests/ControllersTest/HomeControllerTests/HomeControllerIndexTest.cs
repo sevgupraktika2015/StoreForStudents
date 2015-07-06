@@ -10,15 +10,20 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StorForStudentsWebApp.Controllers;
 using System.Collections.ObjectModel;
 
-namespace Tests.ControllersTest.HomeControllerTests {
+namespace Tests.ControllersTest.HomeControllerTests 
+{
     [TestClass]
-    public class HomeControllerIndexTest {
+    public class HomeControllerIndexTest 
+    {
         [TestMethod]
-        public void HomeControllerIndexTest1 () {
-            var controller = new HomeController ();
-            var result = controller.Index () as ViewResult;
-            List<Item> resultItemsList = result.ViewBag.Items;
-            Assert.IsNotNull (resultItemsList);
+        public void Index_Null_Null() 
+        {
+            // Arrange
+            var controller = new HomeController();
+            //Act
+            var result = controller.Index() as ViewResult;
+            //Assert
+            Assert.IsNotNull(result);
         }
     }
 }

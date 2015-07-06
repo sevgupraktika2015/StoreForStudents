@@ -40,13 +40,11 @@ namespace StorForStudentsWebApp.Controllers
                     outitem = initem.ConvertToItem();
                     repository.SaveItem(outitem);
                 }
-                return View(new ItemModel(outitem));
-                //AdminCatalogController Admin = new AdminCatalogController();
-                //return Admin.Index();
+                return RedirectToAction("Index", "AdminCatalog");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index", "AdminCatalog");
             }
         }
 
