@@ -12,21 +12,30 @@ namespace Tests.ModelsTests
         public void Constructor_Item_notNull()
         {
             Item item = new Item("name", 12, 2, 2);
-            ItemModel itemdbo = new ItemModel();
-            Assert.IsNotNull(itemdbo);
+
+            ItemModel itemdto = new ItemModel();
+
+            Assert.IsNotNull(itemdto);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void Constructor_null_exception()
+        {
+            new ItemModel(null);
         }
 
         [TestMethod]
         public void ConvertToItem_Item_Equal()
         {
             Item item = new Item("name", 12, 2, 2);
-            ItemModel itemdbo = new ItemModel(item);
-            Assert.AreEqual(item.Id, itemdbo.ConvertToItem().Id);
-            Assert.AreEqual(item.Price, itemdbo.ConvertToItem().Price);
-            Assert.AreEqual(item.Quantity, itemdbo.ConvertToItem().Quantity);
-            Assert.AreEqual(item.Name, itemdbo.ConvertToItem().Name);
 
-            Assert.AreEqual(item, itemdbo.ConvertToItem()); //?????
+            ItemModel itemdbo = new ItemModel(item);
+            
+            Assert.AreEqual(2, itemdbo.ConvertToItem().Id);
+            Assert.AreEqual(12, itemdbo.ConvertToItem().Price);
+            Assert.AreEqual(2, itemdbo.ConvertToItem().Quantity);
+            Assert.AreEqual("name", itemdbo.ConvertToItem().Name);
         }
     }
 }

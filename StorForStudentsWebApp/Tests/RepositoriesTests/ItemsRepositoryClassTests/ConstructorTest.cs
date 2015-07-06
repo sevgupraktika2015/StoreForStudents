@@ -30,17 +30,38 @@ namespace Tests.RepositoriesTests.ItemsRepositoryClassTests
         }
 
         [TestMethod]
+        
         public void UpdateItem_Context_Equal()
         {
+            // Arrange    
+            Item existingItem;;
             using (StoreDbContext context = new StoreDbContext())
             {
                 IItemsRepository repository = new ItemsRepository(context);
-                Item item = repository.GetById(1);
-                item.Name = "nameChanged";
-                repository.AddItem(item);
-                Item getItem = repository.GetById(1);
-                Assert.AreEqual(item, getItem);
+                existingItem = repository.GetById(1);
             }
+
+            // Act
+            existingItem.Name = "nameChanged";
+            using (StoreDbContext context = new StoreDbContext())
+            {
+                IItemsRepository repository = new ItemsRepository(context);
+                repository.AddItem(existingItem);
+        
+            }
+
+            // Assert
+            Item getItem;
+            using (StoreDbContext context = new StoreDbContext())
+            {
+                IItemsRepository repository = new ItemsRepository(context);
+                getItem = repository.GetById(1);
+
+            }    
+   
+            Assert.IsNotNull(getItem);
+            Assert.AreEqual("nameChanged", getItem.Name);
+    
         }
     }
 }
