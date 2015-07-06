@@ -2,6 +2,10 @@
 using DomainLogic.Entities;
 using DomainLogic.Repositories;
 using Implementation.Repositories;
+using System.Linq;
+using Implementation.Repositories;
+using StorForStudentsWebApp.Models;
+using System.Data.Entity;
 
 namespace StorForStudentsWebApp.Controllers
 {
@@ -22,6 +26,16 @@ namespace StorForStudentsWebApp.Controllers
         {
             ViewBag.Message = "Your contact page.";
             return View();
+        }
+
+        public ActionResult Index() 
+        {
+            using (var context = new StoreDbContext()) 
+            {
+                ItemsRepository repository = new ItemsRepository(context);
+                //ViewBag.Items = repository.EntitySet.ToList ();
+            }
+            return View ();
         }
     }
 }
