@@ -5,8 +5,6 @@ using System.Linq;
 using DomainLogic.Entities;
 using DomainLogic.Repositories;
 using DomainLogic.Utilities;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Implementation.Repositories 
 {
@@ -71,38 +69,7 @@ namespace Implementation.Repositories
                 ilist = EntitySet.Where(s => s.Name.Contains(searchString)).ToList();
             return ilist;
         }
-
-        public List<Item> GetAll()
-        {
-            List<Item> ilist = new List<Item>();
-            Asserts.IsNotNull(EntitySet, "List must be not null");
-            ilist = EntitySet.ToList();
-            return ilist;
-        }
-
-        public void SaveItem(Item item)
-        {
-            EntitySet.Add(item);
-            DbContext.SaveChanges();
-        }
-
-        public void DeleteItem(Item delitem)
-        {
-            foreach (var item in EntitySet)
-            {
-                if (Equals(item, delitem) == true)
-                    EntitySet.Remove(delitem);
-            }
-        }
-
-        public void DeleteAll()
-        {
-            foreach (var item in EntitySet)
-            {
-                EntitySet.Remove(item);
-            }
-        }
-
+        
         /// <summary>
         /// Returns item by its id
         /// </summary>

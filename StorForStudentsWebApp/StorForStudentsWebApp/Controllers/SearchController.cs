@@ -17,7 +17,7 @@ namespace StorForStudentsWebApp.Controllers
         public ActionResult Index(string searchString)
         {
             List<ItemModel> itemsDto = new List<ItemModel>();
-            IItemsRepository repository;
+            ItemsRepository repository;
             using (var context = new StoreDbContext())
                 if (!String.IsNullOrEmpty(searchString))
                 {
