@@ -22,11 +22,7 @@ namespace Implementation.Repositories
         /// <summary>
         /// List of entities (table from DB)
         /// </summary>
-<<<<<<< HEAD
-        protected DbSet<Item> EntitySet { get; }
-=======
         protected DbSet<Item> EntitySet { get; private set; }
->>>>>>> bc27918494b1ff20355b90f71c6c5532ce53d0dc
 
         /// <summary>
         /// Default constructor

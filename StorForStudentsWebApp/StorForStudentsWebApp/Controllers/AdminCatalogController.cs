@@ -15,18 +15,14 @@ namespace StorForStudentsWebApp.Controllers
         // GET: AdminCatalog
         public ActionResult Index()
         {
-            IList<Item> itemList;
+            IList<ItemModel> itemList;
             using (var context = new StoreDbContext())
             {
                 ItemsRepository repository = new ItemsRepository(context);
-<<<<<<< HEAD
-                ViewBag.Items = repository.EntitySet.ToList();
-                itemList = repository; //TODO: items list
-=======
-                ViewBag.Items = repository.GetAll();
->>>>>>> bc27918494b1ff20355b90f71c6c5532ce53d0dc
+                ViewBag.Items = repository.GetAll().ToList();
+                itemList = ItemModel.ToModel(repository.GetAll());
             }
-            return View();
+            return PartialView("Index", new AdminCatalogViewModel(itemList));
         }
 
         protected override void Dispose(bool disposing)
