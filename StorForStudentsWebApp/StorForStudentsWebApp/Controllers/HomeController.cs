@@ -6,6 +6,7 @@ using Implementation.Repositories;
 using System.Linq;
 using StorForStudentsWebApp.Models;
 using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace StorForStudentsWebApp.Controllers
 {
@@ -83,12 +84,26 @@ namespace StorForStudentsWebApp.Controllers
 
         public ActionResult Index() 
         {
+            using (StoreDbContext context = new StoreDbContext ()) {
+                IItemsRepository repository = new ItemsRepository (context);
+                IList <Item> items = repository.GetAll ();
+                List <ItemModel> itemsDTO = new List <ItemModel> ();
+                foreach (Item element in items)
+                {
+                    itemsDTO.Add (new ItemModel (element));
+                }
+                return View (itemsDTO);
+            }
+            
+            /*
+
             using (var context = new StoreDbContext()) 
             {
                 ItemsRepository repository = new ItemsRepository(context);
-                //ViewBag.Items = repository.EntitySet.ToList ();
+                ViewBag.Items = repository.GetAll ();
             }
             return View ();
+            */
         }
     }
 
