@@ -8,6 +8,7 @@
 
 <h2>Панель администратора. Редактор товаров.</h2>
 
+
 <table class="table table-striped table-hover">
     <tr>
         <th>
@@ -19,9 +20,12 @@
         <th>
             Количество
         </th>
+        <th>
+        </th>
     </tr>
 
-@foreach (ItemModel item in Model.itemList) {
+@foreach (ItemModel item in Model.itemList)
+{
     <tr>
         <td>
             @item.Name
@@ -32,6 +36,19 @@
         <td>
             @item.Quantity
         </td>
+        <td>
+            @using (Html.BeginForm("Index","DeleteItem"))
+            {
+                <div class="form-horizontal">
+                    <input type="submit" value="Удалить" />
+                </div>
+            }
+        </td>
     </tr>
 }
+
 </table>
+
+<div>
+    @Html.ActionLink("Добавить элемент","Index","AddItem")
+</div>

@@ -59,8 +59,15 @@ namespace Implementation.Repositories
         }
         public List<Item> GetAll()
         {
-            List<Item> ilist = EntitySet.ToList();
-            return ilist;
+            try
+            {
+                List<Item> ilist = EntitySet.ToList();
+                return ilist;
+            }
+            catch
+            {
+                return new List<Item>();
+            }
         }
 
         public List<Item> Find(string searchString)

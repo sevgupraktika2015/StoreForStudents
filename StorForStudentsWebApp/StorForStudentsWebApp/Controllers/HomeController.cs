@@ -6,32 +6,12 @@ using Implementation.Repositories;
 using System.Linq;
 using StorForStudentsWebApp.Models;
 using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace StorForStudentsWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        
-        public ActionResult Details(int id)
-        {
-            if (id == null)
-            {
-                return RedirectToAction("Index");
-            }
-            using (StoreDbContext context = new StoreDbContext())
-            {
-                IItemsRepository repository = new ItemsRepository(context);
-                Item item = repository.GetById(id);
-                if (item == null)
-                {
-                    return RedirectToAction("Index");
-                }
-                ItemModel itemDTO = new ItemModel(item);
-                return View(itemDTO);
-            }
-            return View();
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -44,7 +24,7 @@ namespace StorForStudentsWebApp.Controllers
             return View();
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -53,7 +33,7 @@ namespace StorForStudentsWebApp.Controllers
             using (StoreDbContext context = new StoreDbContext())
             {
                 IItemsRepository repository = new ItemsRepository(context);
-                Item item = repository.GetById(id);
+                Item item = repository.GetById(id.Value);
                 if (item == null)
                 {
                     return HttpNotFound();
@@ -83,13 +63,33 @@ namespace StorForStudentsWebApp.Controllers
 
         public ActionResult Index() 
         {
+            List<ItemModel> ItemsDto = new List<ItemModel>();
             using (var context = new StoreDbContext()) 
             {
                 ItemsRepository repository = new ItemsRepository(context);
-                //ViewBag.Items = repository.EntitySet.ToList ();
+                ItemsDto = ItemModel.ToModel(repository.GetAll());
             }
-            return View ();
+            return View (ItemsDto);
+        }
+
+        public ActionResult Details(int id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+            using (StoreDbContext context = new StoreDbContext())
+            {
+                IItemsRepository repository = new ItemsRepository(context);
+                Item item = repository.GetById(id);
+                if (item == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                ItemModel itemDTO = new ItemModel(item);
+                return View(itemDTO);
+            }
+            return View();
         }
     }
-
 }

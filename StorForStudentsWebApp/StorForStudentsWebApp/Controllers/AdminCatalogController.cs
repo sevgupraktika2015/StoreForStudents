@@ -22,7 +22,7 @@ namespace StorForStudentsWebApp.Controllers
                 ViewBag.Items = repository.GetAll().ToList();
                 itemList = ItemModel.ToModel(repository.GetAll());
             }
-            return PartialView("Index", new AdminCatalogViewModel(itemList));
+            return View(itemList);
         }
 
         protected override void Dispose(bool disposing)
