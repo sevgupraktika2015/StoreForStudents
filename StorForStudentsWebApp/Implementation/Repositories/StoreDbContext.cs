@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using Implementation.Mappings;
 
+
 namespace Implementation.Repositories
 {
     /// <summary>
@@ -22,6 +23,5 @@ namespace Implementation.Repositories
         }
 
         public System.Data.Entity.DbSet<DomainLogic.Entities.Item> Items { get; set; }
-
     }
 }

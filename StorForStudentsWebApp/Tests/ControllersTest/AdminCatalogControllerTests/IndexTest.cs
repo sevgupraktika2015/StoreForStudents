@@ -19,13 +19,15 @@ namespace Tests.ControllersTests.AdminCatalogControllerTests
         public void Index_Null_ListOfItems()
         {
             // Arrange
-            const string expectedViewName = "Index";
             var controller = new AdminCatalogController();
             //Act
             var result = controller.Index() as ViewResult;
             //Assert
             Asserts.IsNotNull(result, "Should have returned a ViewResult");
+<<<<<<< HEAD:StorForStudentsWebApp/Tests/ControllersTests/AdminCatalogControllerTests/IndexTest.cs
             Assert.AreEqual(expectedViewName, result.ViewName, "View should be {0}", expectedViewName);
+=======
+>>>>>>> bc27918494b1ff20355b90f71c6c5532ce53d0dc:StorForStudentsWebApp/Tests/ControllersTest/AdminCatalogControllerTests/IndexTest.cs
         }
 
         [TestMethod]
@@ -36,7 +38,7 @@ namespace Tests.ControllersTests.AdminCatalogControllerTests
             using (var context = new StoreDbContext())
             {
                 ItemsRepository repository = new ItemsRepository(context);
-                expectedItemsList = new List<Item>(repository.EntitySet.ToArray());
+                expectedItemsList = repository.GetAll();
             }
             var controller = new AdminCatalogController();
             //Act

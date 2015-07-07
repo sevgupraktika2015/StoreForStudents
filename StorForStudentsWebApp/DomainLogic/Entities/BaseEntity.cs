@@ -1,11 +1,11 @@
 ﻿using DomainLogic.Utilities;
 
-namespace DomainLogic.Entities
+namespace DomainLogic.Entities 
 {
     /// <summary>
     /// Base entity for access to database
     /// </summary>
-    public abstract class BaseEntity
+    public abstract class BaseEntity 
     {
         /// <summary>
         /// Id of entity
@@ -15,7 +15,7 @@ namespace DomainLogic.Entities
         /// <summary>
         /// Default
         /// </summary>
-        protected BaseEntity()
+        protected BaseEntity() 
         {
         }
 
@@ -23,10 +23,9 @@ namespace DomainLogic.Entities
         /// Contsructor with id
         /// </summary>
         /// <param name="id"></param>
-        protected BaseEntity(int id)
+        protected BaseEntity(int id) 
         {
             Asserts.IsNotNegative(id, id.ToString());
-
             Id = id;
         }
     }

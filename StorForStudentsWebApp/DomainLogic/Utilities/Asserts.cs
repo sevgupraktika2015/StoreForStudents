@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DomainLogic.Entities;
+using DomainLogic.Utilities;
 
 namespace DomainLogic.Utilities
 {
@@ -90,6 +91,7 @@ namespace DomainLogic.Utilities
         {
             throw new NotImplementedException();
         }
+
 
         public static void AreEqual(Item item1, Item item2)
         {

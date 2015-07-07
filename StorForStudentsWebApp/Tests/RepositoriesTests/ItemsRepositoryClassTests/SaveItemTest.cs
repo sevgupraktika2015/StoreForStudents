@@ -21,7 +21,7 @@ namespace Tests.RepositoriesTests.ItemsRepositoryClassTests
                 ItemsRepository repository = new ItemsRepository(context);
                 repository.DeleteAll();
                 repository.SaveItem(item1);
-                entitylen = repository.EntitySet.ToArray().Length;
+                entitylen = repository.GetAll().ToArray().Length;
             }
             Assert.AreEqual(1, entitylen);
         }

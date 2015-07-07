@@ -1,29 +1,35 @@
-﻿using System;
+using System;
 using DomainLogic.Utilities;
 
 namespace DomainLogic.Entities
 {
     public class Item : BaseEntity
     {
-        public string Name { get; protected set; }
-        public decimal Price { get; protected set; }
-        public int Quantity { get; protected set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
 
-        protected Item()
+        public string Description { get; set; }
+        public string ImagePath { get; set; }
+
+        public Item()
         {
             // for Entity Framework usage only
         }
 
-        public Item(string name, decimal price, int quantity,  int id = 0): base(id)
+        
+        public Item(string name, decimal price, int quantity, int id = 0, string Desc = "none",
+            string ImPath = "none"): base(id)
         {
             Asserts.IsNotNullOrEmpty(name, "name");
             Asserts.IsNotNegative(price, price.ToString());
             Asserts.IsNotNegative(quantity, quantity.ToString());
-            
             Name = name;
             Price = price;
             Quantity = quantity;
             Id = id;
+            Description = Desc;
+            ImagePath = ImPath;
         }
 
         public Boolean Equals(Item item1, Item item2)
