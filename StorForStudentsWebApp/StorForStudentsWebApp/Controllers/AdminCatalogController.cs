@@ -19,7 +19,6 @@ namespace StorForStudentsWebApp.Controllers
             using (var context = new StoreDbContext())
             {
                 ItemsRepository repository = new ItemsRepository(context);
-                ViewBag.Items = repository.GetAll().ToList();
                 itemList = ItemModel.ToModel(repository.GetAll());
             }
             return View(itemList);

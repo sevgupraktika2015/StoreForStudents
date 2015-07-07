@@ -21,9 +21,9 @@ namespace Tests.ControllersTests.AdminCatalogControllerTests
             // Arrange
             var controller = new AdminCatalogController();
             //Act
-            var result = controller.Index() as PartialViewResult;
+            var result = controller.Index() as ViewResult;
             //Assert
-            Asserts.IsNotNull(result, "Should have returned a PartialViewResult");
+            Asserts.IsNotNull(result, "Should have returned a ViewResult");
         }
     }
 }
