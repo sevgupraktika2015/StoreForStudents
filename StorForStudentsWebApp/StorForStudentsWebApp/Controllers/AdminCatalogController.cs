@@ -19,10 +19,9 @@ namespace StorForStudentsWebApp.Controllers
             using (var context = new StoreDbContext())
             {
                 ItemsRepository repository = new ItemsRepository(context);
-                ViewBag.Items = repository.GetAll().ToList();
                 itemList = ItemModel.ToModel(repository.GetAll());
             }
-            return PartialView("Index", new AdminCatalogViewModel(itemList));
+            return View("Index", new AdminCatalogViewModel(itemList));
         }
 
         protected override void Dispose(bool disposing)
