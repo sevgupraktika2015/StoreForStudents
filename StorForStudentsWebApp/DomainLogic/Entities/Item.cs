@@ -20,7 +20,6 @@ namespace DomainLogic.Entities
         
         public Item(string name, decimal price, int quantity, int id = 0, string Desc = "none",
             string ImPath = "none"): base(id)
-
         {
             Asserts.IsNotNullOrEmpty(name, "name");
             Asserts.IsNotNegative(price, price.ToString());
@@ -29,6 +28,8 @@ namespace DomainLogic.Entities
             Price = price;
             Quantity = quantity;
             Id = id;
+            Description = Desc;
+            ImagePath = ImPath;
         }
 
         public Boolean Equals(Item item1, Item item2)

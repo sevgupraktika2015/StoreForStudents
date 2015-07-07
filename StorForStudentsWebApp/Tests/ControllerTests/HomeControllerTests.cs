@@ -15,37 +15,44 @@ namespace Tests.ControllerTests
         [TestMethod]
         public void EditControllerTest_Id_notNull()
         {
+            //дикий говнокод, но зато выполняется с любой БД
+            Item item;
+            Item[] find;
             using (StoreDbContext context = new StoreDbContext())
             {
                 ItemsRepository repository = new ItemsRepository(context);
-                Item item = new Item("item", 12, 12, 1, "desc", "IP");
+                item = new Item("item", 12, 12, 33, "desc", "IP");
+                repository.DeleteAll();
                 repository.AddItem(item);
+                find = repository.Find(item.Name).ToArray();
             }
 
             var controller = new HomeController();
-            var result = controller.Edit(1) as ViewResult;
-            var product = (ItemModel) result.ViewData.Model;
+            var result = controller.Edit(find[0].Id) as ViewResult;
+            ItemModel product = (ItemModel) result.ViewData.Model;
 
             Assert.IsNotNull(product.Name);
-            Assert.AreEqual(product.Name, "item");
         }
 
         [TestMethod]
         public void DetailsControllerTest_Id_notNull()
         {
+            Item item;
+            Item[] find;
             using (StoreDbContext context = new StoreDbContext())
             {
                 ItemsRepository repository = new ItemsRepository(context);
-                Item item = new Item("item", 12, 12, 1, "desc", "IP");
-                repository.AddItem(item);
+                item = new Item("item", 12, 12, 33, "desc", "IP");
+                repository.DeleteAll();
+                repository.SaveItem(item);
+                find = repository.Find(item.Name).ToArray();
             }
 
             var controller = new HomeController();
-            var result = controller.Details(1) as ViewResult;
+            var result = controller.Details(find[0].Id) as ViewResult;
             var product = (ItemModel)result.ViewData.Model;
 
             Assert.IsNotNull(product.Name);
-            Assert.AreEqual(product.Name, "item");
             
         }
     }

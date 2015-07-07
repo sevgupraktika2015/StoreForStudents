@@ -165,7 +165,6 @@
     <Compile Include="Controllers\AdminCatalogController.cs" />
     <Compile Include="Controllers\DeleteItemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Models\itemsVIewModel.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -228,6 +227,7 @@
     <Content Include="Views\AdminCatalog\Index.cshtml" />
     <Content Include="Views\AddItem\Create.cshtml" />
     <Content Include="Views\AddItem\Index.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

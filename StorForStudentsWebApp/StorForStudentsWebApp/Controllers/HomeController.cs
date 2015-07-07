@@ -12,7 +12,7 @@ namespace StorForStudentsWebApp.Controllers
     public class HomeController : Controller
     {
         
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
             if (id == null)
             {
@@ -21,7 +21,7 @@ namespace StorForStudentsWebApp.Controllers
             using (StoreDbContext context = new StoreDbContext())
             {
                 IItemsRepository repository = new ItemsRepository(context);
-                Item item = repository.GetById(1);
+                Item item = repository.GetById(id);
                 if (item == null)
                 {
                     return RedirectToAction("Index");
@@ -44,7 +44,7 @@ namespace StorForStudentsWebApp.Controllers
             return View();
         }
 
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
@@ -53,7 +53,7 @@ namespace StorForStudentsWebApp.Controllers
             using (StoreDbContext context = new StoreDbContext())
             {
                 IItemsRepository repository = new ItemsRepository(context);
-                Item item = repository.GetById(id.Value);
+                Item item = repository.GetById(id);
                 if (item == null)
                 {
                     return HttpNotFound();

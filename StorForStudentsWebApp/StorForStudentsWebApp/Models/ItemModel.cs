@@ -50,7 +50,7 @@ namespace StorForStudentsWebApp.Models
                 Price = item.Price;
                 Quantity = item.Quantity;
 				Description = item.Description;
-           	ImagePath = item.ImagePath;
+           	    ImagePath = item.ImagePath;
             }
             catch
             {
