@@ -16,7 +16,7 @@ namespace Tests.ControllersTests.AdminCatalogControllerTests
     {
 
         [TestMethod]
-        public void Index_returns_correct_view()
+        public void Index_Null_ListOfItems()
         {
             // Arrange
             const string expectedViewName = "Index";
@@ -26,7 +26,6 @@ namespace Tests.ControllersTests.AdminCatalogControllerTests
             //Assert
             Asserts.IsNotNull(result, "Should have returned a ViewResult");
             Assert.AreEqual(expectedViewName, result.ViewName, "View should be {0}", expectedViewName);
-            
         }
 
         [TestMethod]

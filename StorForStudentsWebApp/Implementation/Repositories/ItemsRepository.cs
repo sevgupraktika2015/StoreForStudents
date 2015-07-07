@@ -18,7 +18,7 @@ namespace Implementation.Repositories
         /// <summary>
         /// List of entities (table from DB)
         /// </summary>
-        public DbSet<Item> EntitySet { get; private set; }
+        protected DbSet<Item> EntitySet { get; }
 
         /// <summary>
         /// Default constructor
