@@ -3,7 +3,9 @@ using System.Web.Mvc;
 using DomainLogic.Entities;
 using DomainLogic.Repositories;
 using Implementation.Repositories;
+using System.Linq;
 using StorForStudentsWebApp.Models;
+using System.Data.Entity;
 
 namespace StorForStudentsWebApp.Controllers
 {
@@ -38,7 +40,6 @@ namespace StorForStudentsWebApp.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
@@ -57,7 +58,7 @@ namespace StorForStudentsWebApp.Controllers
             using (StoreDbContext context = new StoreDbContext())
             {
                 IItemsRepository repository = new ItemsRepository(context);
-                Item item = repository.GetById(1);
+                Item item = repository.GetById(id.Value);
                 if (item == null)
                 {
                     return HttpNotFound();
@@ -83,6 +84,16 @@ namespace StorForStudentsWebApp.Controllers
                 }
             }
             return View(itemDBO);
+        }
+
+        public ActionResult Index() 
+        {
+            using (var context = new StoreDbContext()) 
+            {
+                ItemsRepository repository = new ItemsRepository(context);
+                //ViewBag.Items = repository.EntitySet.ToList ();
+            }
+            return View ();
         }
     }
 

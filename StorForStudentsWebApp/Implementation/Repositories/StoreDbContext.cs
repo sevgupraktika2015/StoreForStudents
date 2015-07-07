@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using Implementation.Mappings;
 
+
 namespace Implementation.Repositories
 {
     /// <summary>
@@ -21,5 +22,6 @@ namespace Implementation.Repositories
             base.OnModelCreating(modelBuilder);
         }
 
+        public System.Data.Entity.DbSet<DomainLogic.Entities.Item> Items { get; set; }
     }
 }

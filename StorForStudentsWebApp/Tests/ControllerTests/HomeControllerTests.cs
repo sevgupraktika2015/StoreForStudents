@@ -5,6 +5,7 @@ using StorForStudentsWebApp.Controllers;
 using StorForStudentsWebApp.Models;
 using DomainLogic.Entities;
 using Implementation.Repositories;
+using DomainLogic.Repositories;
 
 namespace Tests.ControllerTests
 {
@@ -45,6 +46,7 @@ namespace Tests.ControllerTests
 
             Assert.IsNotNull(product.Name);
             Assert.AreEqual(product.Name, "item");
+            
         }
     }
 }
