@@ -48,6 +48,7 @@ namespace Implementation.Repositories
                 if (Equals(item, delitem) == true)
                     EntitySet.Remove(delitem);
             }
+            DbContext.SaveChanges();
         }
 
         public void DeleteAll() 
@@ -56,6 +57,7 @@ namespace Implementation.Repositories
             {
                 EntitySet.Remove(item);
             }
+            DbContext.SaveChanges();
         }
         public List<Item> GetAll()
         {
