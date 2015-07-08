@@ -8,10 +8,10 @@ using System.Collections.Generic;
 namespace Tests.RepositoriesTests.ItemsRepositoryClassTests
 {
     [TestClass]
-    public class DeleteTest
+    public class DeleteRepositoryTest
     {
         [TestMethod]
-        public void Delete_Item_Void()
+        public void DeleteRepository_Item_Void()
         {
             // Arrange
             using (StoreDbContext context = new StoreDbContext())
@@ -26,6 +26,20 @@ namespace Tests.RepositoriesTests.ItemsRepositoryClassTests
                 resultList = repository.Find(testItem.Name);
                 Equals(resultList, null);
 
+            }
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DeleteRepository_Null_Void()
+        {
+            // Arrange
+            using (StoreDbContext context = new StoreDbContext())
+            {
+                IItemsRepository repository = new ItemsRepository(context);
+                //Act
+                repository.DeleteItem(null);
+                //Assert
             }
         }
     }

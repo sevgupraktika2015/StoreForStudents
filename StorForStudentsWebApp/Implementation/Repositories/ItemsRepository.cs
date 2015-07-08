@@ -43,11 +43,11 @@ namespace Implementation.Repositories
 
         public void DeleteItem(Item delitem)
         {
-            foreach (var item in EntitySet)
-            {
-                if (Equals(item, delitem) == true)
+            //foreach (var item in EntitySet)
+            //{
+            //    if (Equals(item, delitem) == true)
                     EntitySet.Remove(delitem);
-            }
+            //}
             DbContext.SaveChanges();
         }
 

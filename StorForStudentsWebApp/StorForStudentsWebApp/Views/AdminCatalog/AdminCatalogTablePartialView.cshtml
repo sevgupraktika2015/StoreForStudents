@@ -10,6 +10,9 @@
         <th>
             Количество
         </th>
+        <th>
+            Удаление
+        </th>
     </tr>
 
     @foreach (ItemModel item in Model)
@@ -23,6 +26,14 @@
             </td>
             <td>
                 @item.Quantity
+            </td>
+            <td>
+                @using (Html.BeginForm("Index", "DeleteItem"))
+                {
+                    <div class="form-horizontal">
+                        <input type="submit" value="Удалить" />
+                    </div>
+                }
             </td>
         </tr>
     }

@@ -31,6 +31,7 @@ namespace Tests.ControllersTests.AddItemControllerTests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void Create_Null_Null()
         {
             // Arrange
