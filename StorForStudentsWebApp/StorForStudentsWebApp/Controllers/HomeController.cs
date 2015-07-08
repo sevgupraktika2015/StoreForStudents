@@ -63,13 +63,26 @@ namespace StorForStudentsWebApp.Controllers
 
         public ActionResult Index() 
         {
-            List<ItemModel> ItemsDto = new List<ItemModel>();
+            using (StoreDbContext context = new StoreDbContext ()) {
+                IItemsRepository repository = new ItemsRepository (context);
+                IList <Item> items = repository.GetAll ();
+                List <ItemModel> itemsDTO = new List <ItemModel> ();
+                foreach (Item element in items)
+                {
+                    itemsDTO.Add (new ItemModel (element));
+                }
+                return View (itemsDTO);
+            }
+            
+            /*
+
             using (var context = new StoreDbContext()) 
             {
                 ItemsRepository repository = new ItemsRepository(context);
-                ItemsDto = ItemModel.ToModel(repository.GetAll());
+                ViewBag.Items = repository.GetAll ();
             }
-            return View (ItemsDto);
+            return View ();
+            */
         }
 
         public ActionResult Details(int id)
