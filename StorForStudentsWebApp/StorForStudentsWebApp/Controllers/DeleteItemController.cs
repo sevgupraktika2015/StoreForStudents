@@ -21,7 +21,7 @@ namespace StorForStudentsWebApp.Controllers
             using (var context = new StoreDbContext())
             {
                 ItemsRepository repository = new ItemsRepository(context);
-                Item delItem = new Item();
+                Item delItem;
                 delItem = inItem.ConvertToItem();
                 repository.DeleteItem(delItem);
             }

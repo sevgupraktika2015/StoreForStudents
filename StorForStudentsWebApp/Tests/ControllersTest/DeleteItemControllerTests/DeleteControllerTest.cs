@@ -6,12 +6,22 @@ using System.Web.Mvc;
 using StorForStudentsWebApp.Models;
 using Implementation.Repositories;
 using DomainLogic.Entities;
+using System.Collections.Generic;
 
 namespace Tests.ControllersTest.DeleteItemControllerTests
 {
     [TestClass]
     public class DeleteControllerTest
     {
+        public void AddRequest()
+        {
+            using (var context = new StoreDbContext())
+            {
+                //"insert into Items values('q',1,1,'q','q')"
+                //context.Database.
+            }
+        }
+
         [TestMethod]
         public void IndexDeleteController_ItemModel_Null()
         {
@@ -19,15 +29,16 @@ namespace Tests.ControllersTest.DeleteItemControllerTests
             using (var context = new StoreDbContext())
             {
                 ItemsRepository repository = new ItemsRepository(context);
-                Item item = new Item();
-                item = repository.GetById(1);
+                List<Item> items = new List<Item>();
+                //AddRequest();
+                items = repository.Find("asdf");
                 var controller = new DeleteItemController();
                 ItemModel itemModel;
                 //Act
-                itemModel = new ItemModel(item);
+                itemModel = new ItemModel(items[0]);
                 controller.Index(itemModel);
                 //Assert
-                Assert.AreEqual(repository.GetById(1),null);
+                Assert.AreEqual(repository.Find("asdf").Count, 0);
             }
         }
 
