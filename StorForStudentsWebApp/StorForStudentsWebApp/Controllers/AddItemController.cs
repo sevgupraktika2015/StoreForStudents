@@ -29,23 +29,16 @@ namespace StorForStudentsWebApp.Controllers
         [HttpPost]
         public ActionResult Create(ItemModel initem)
         {
-            try
+            Asserts.IsNotNull(initem);
+            Item outitem;
+            // TODO: Add insert logic here
+            using (var context = new StoreDbContext())
             {
-                Asserts.IsNotNull(initem);
-                Item outitem;
-                // TODO: Add insert logic here
-                using (var context = new StoreDbContext())
-                {
-                    ItemsRepository repository = new ItemsRepository(context);
-                    outitem = initem.ConvertToItem();
-                    repository.SaveItem(outitem);
-                }
-                return RedirectToAction("Index", "AdminCatalog");
+                ItemsRepository repository = new ItemsRepository(context);
+                outitem = initem.ConvertToItem();
+                repository.SaveItem(outitem);
             }
-            catch
-            {
-                return RedirectToAction("Index", "AdminCatalog");
-            }
+            return RedirectToAction("Index", "AdminCatalog");
         }
     }
 }

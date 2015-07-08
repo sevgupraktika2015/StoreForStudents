@@ -14,16 +14,24 @@ namespace Tests.RepositoriesTests.ItemsRepositoryClassTests
         public void Delete_Item_Void()
         {
             // Arrange
+            Item testItem;
             using (StoreDbContext context = new StoreDbContext())
             {
                 IItemsRepository repository = new ItemsRepository(context);
-                Item testItem = new Item("a", 1, 1);
+                testItem = new Item("a", 1, 1);
                 repository.SaveItem(testItem);
-                //Act
+            }
+            //Act
+            using (StoreDbContext context = new StoreDbContext())
+            {
+                IItemsRepository repository = new ItemsRepository(context);
                 repository.DeleteItem(testItem);
-                //Assert
-                List<Item> resultList = new List<Item>();
-                resultList = repository.Find(testItem.Name);
+            }
+            //Assert
+            using (StoreDbContext context = new StoreDbContext())
+            {
+                IItemsRepository repository = new ItemsRepository(context);
+                List<Item> resultList = repository.Find(testItem.Name);
                 Equals(resultList, null);
 
             }

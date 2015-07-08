@@ -1,5 +1,5 @@
 ﻿@using StorForStudentsWebApp.Models
-@model AdminCatalogViewModel
+@model List<StorForStudentsWebApp.Models.ItemModel>
 
 @{
     ViewBag.Title = "Редактор товаров.";
@@ -21,10 +21,11 @@
             Количество
         </th>
         <th>
+            Редактирование
         </th>
     </tr>
 
-@foreach (ItemModel item in Model.itemList)
+@foreach (ItemModel item in Model)
 {
     <tr>
         <td>
