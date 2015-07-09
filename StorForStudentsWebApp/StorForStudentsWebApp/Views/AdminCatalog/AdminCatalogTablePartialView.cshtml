@@ -28,7 +28,7 @@
                 @item.Quantity
             </td>
             <td>
-                @using (Html.BeginForm("Index", "DeleteItem"))
+                @using (Html.BeginForm("Index", "DeleteItem",item))
                 {
                     <div class="form-horizontal">
                         <input type="submit" value="Удалить" />

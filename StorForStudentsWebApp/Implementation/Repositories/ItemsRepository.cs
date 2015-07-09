@@ -43,6 +43,7 @@ namespace Implementation.Repositories
 
         public void DeleteItem(Item delitem)
         {
+            Asserts.IsNotNull(delitem);
             EntitySet.Remove(delitem);
             DbContext.SaveChanges();
         }

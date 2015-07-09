@@ -13,15 +13,6 @@ namespace Tests.ControllersTest.DeleteItemControllerTests
     [TestClass]
     public class DeleteControllerTest
     {
-        public void AddRequest()
-        {
-            using (var context = new StoreDbContext())
-            {
-                //"insert into Items values('q',1,1,'q','q')"
-                //context.Database.
-            }
-        }
-
         [TestMethod]
         public void IndexDeleteController_ItemModel_Null()
         {
