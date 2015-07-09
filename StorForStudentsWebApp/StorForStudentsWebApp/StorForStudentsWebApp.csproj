@@ -243,9 +243,10 @@
     <Content Include="Views\AdminCatalog\Index.cshtml" />
     <Content Include="Views\AddItem\Create.cshtml" />
     <Content Include="Views\AddItem\Index.cshtml" />
-    <Content Include="Views\ViewOrder\Index.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\AdminCatalog\AdminCatalogTablePartialView.cshtml" />
+    <Content Include="Views\ViewOrder\Index.cshtml" />
+    <Content Include="Views\ViewOrder\UsersOrdersPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -27,5 +27,11 @@ namespace Implementation.Repositories
             Order current = EntitySet.Find(id);
             return current;
         }
+
+        public List<Order> FindByUser(int user)
+        {
+            List<Order> current = EntitySet.Where(s => s.User == user).ToList();
+            return current;
+        }
     }
 }

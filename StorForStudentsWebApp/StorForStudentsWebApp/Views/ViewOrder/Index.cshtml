@@ -1,10 +1,10 @@
-﻿@model StorForStudentsWebApp.Models.OrderModel
+﻿@model IEnumerable<StorForStudentsWebApp.Models.OrderModel>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-<p> @Model.Id , @Model.User</p>
+<h2>ur orders, sweet potato</h2>
+@Html.Partial("UsersOrdersPartialView", Model)
 
