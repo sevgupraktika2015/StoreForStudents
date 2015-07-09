@@ -1,0 +1,29 @@
+﻿@using StorForStudentsWebApp.Models
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            Название товара
+        </th>
+        <th>
+            Цена
+        </th>
+        <th>
+            Количество
+        </th>
+    </tr>
+
+    @foreach (ItemModel item in Model)
+    {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Price
+            </td>
+            <td>
+                @item.Quantity
+            </td>
+        </tr>
+    }
+</table>
