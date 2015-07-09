@@ -184,6 +184,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AdminCatalogViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ItemModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
@@ -243,6 +244,8 @@
     <Content Include="Views\AddItem\Create.cshtml" />
     <Content Include="Views\AddItem\Index.cshtml" />
     <Content Include="Views\ViewOrder\Index.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\AdminCatalog\AdminCatalogTablePartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

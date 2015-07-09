@@ -1,5 +1,8 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
+using DomainLogic.Entities;
 using Implementation.Repositories;
 using StorForStudentsWebApp.Models;
 
@@ -12,12 +15,13 @@ namespace StorForStudentsWebApp.Controllers
         // GET: AdminCatalog
         public ActionResult Index()
         {
+            IList<ItemModel> itemList;
             using (var context = new StoreDbContext())
             {
                 ItemsRepository repository = new ItemsRepository(context);
-                ViewBag.Items = repository.GetAll();
+                itemList = ItemModel.ToModel(repository.GetAll());
             }
-            return View();
+            return View("Index", new AdminCatalogViewModel(itemList));
         }
 
         protected override void Dispose(bool disposing)
