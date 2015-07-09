@@ -10,16 +10,23 @@ using DomainLogic.Utilities;
 
 namespace Implementation.Repositories
 {
-    class ItemsInOrdersRepository : IItemsInOrdersRepository
+    public class ItemsInOrdersRepository : IItemsInOrdersRepository
     {
         protected readonly DbContext DbContext;
         protected DbSet<ItemsInOrder> EntitySet { get; set; }
 
-        ItemsInOrdersRepository(DbContext dbContext)
+        public ItemsInOrdersRepository(DbContext dbContext)
         {
             Asserts.IsNotNull(dbContext, "dbContext");
             DbContext = dbContext;
             EntitySet = dbContext.Set<ItemsInOrder>();
+        }
+
+        public List<ItemsInOrder> Find(int id)
+        {
+            List<ItemsInOrder> outlist = EntitySet.Where(s => s.ItemId == id).ToList();
+            return outlist;
+
         }
     }
 }

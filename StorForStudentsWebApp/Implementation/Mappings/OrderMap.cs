@@ -13,6 +13,7 @@ namespace Implementation.Mappings
         public OrderMap()
         {
             ToTable("Orders");
+            HasKey(x => x.Id);
             Property(x => x.Id).HasColumnName("Id");
             Property(x => x.UserId).HasColumnName("User");
         }

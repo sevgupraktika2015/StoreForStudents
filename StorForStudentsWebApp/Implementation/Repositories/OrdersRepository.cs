@@ -21,5 +21,11 @@ namespace Implementation.Repositories
             DbContext = dbContext;
             EntitySet = dbContext.Set<Order>();
         }
+
+        public Order Find(int id)
+        {
+            Order current = EntitySet.Find(id);
+            return current;
+        }
     }
 }

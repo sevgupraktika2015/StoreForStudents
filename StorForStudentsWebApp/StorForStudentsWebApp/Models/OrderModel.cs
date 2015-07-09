@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using DomainLogic.Entities;
@@ -10,39 +11,30 @@ namespace StorForStudentsWebApp.Models
     public class OrderModel
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public Dictionary<int, int> Items;
+        public int User { get; set; }
+        public List<OrderItem> Items;
 
-        public OrderModel(Order order, List<ItemsInOrder> items)
+        public OrderModel()
         {
-            Asserts.IsNotNull(order);
-            Asserts.IsNotNull(items);
-            Id = order.Id;
-            UserId = order.UserId;
-            foreach (ItemsInOrder item in items)
-            {
-                if (item.OrderId != Id)
-                {
-                    throw new ArgumentException("Item doesent match this order");
-                }
-                Items.Add(item.ItemId, item.Quantity);
-            }
+            //entity only
         }
 
-        public static List<OrderModel> ToModel(List<Order> orders, List<ItemsInOrder> items)
+        public OrderModel(int id, int user)
         {
-            List<OrderModel> outList = new List<OrderModel>();
-            foreach (var order in orders)
-            {
-                List<ItemsInOrder> itemsForThisOrder = items.Where(s => s.OrderId == order.Id).ToList();
-                outList.Add(new OrderModel(order, itemsForThisOrder));
-            }
-            return outList;
+            Id = id;
+            User = user;
+        }
+
+        public OrderModel(int id, int user, List<OrderItem> items )
+        {
+            Id = id;
+            User = user;
+            Items = items;
         }
 
         public Order ConvertToOrder()
         {
-            Order newOrder = new Order(UserId, Id);
+            Order newOrder = new Order(User, Id);
             return newOrder;
         }
 
@@ -51,9 +43,14 @@ namespace StorForStudentsWebApp.Models
             List<ItemsInOrder> newList = new List<ItemsInOrder>();
             foreach (var item in Items)
             {
-                newList.Add(new ItemsInOrder(Id, item.Key, item.Value));
+                newList.Add(new ItemsInOrder(Id, item.Item.Id, item.Quantity));
             }
             return newList;
+        }
+
+        public void AddItem(OrderItem item)
+        {
+            Items.Add(item);
         }
     }
 }

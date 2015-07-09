@@ -12,7 +12,7 @@ namespace DomainLogic.Entities
         public int UserId { set; get; }
         public Order()
         {
-            
+            //entity fw usage
         }
 
         public Order(int userid = 0, int orderid = 0) : base(orderid)

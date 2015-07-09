@@ -8,5 +8,6 @@ namespace DomainLogic.Repositories
 {
     public interface IOrdersReporitory
     {
+        Entities.Order Find(int id);
     }
 }

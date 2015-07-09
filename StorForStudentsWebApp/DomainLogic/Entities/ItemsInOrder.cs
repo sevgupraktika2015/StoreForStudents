@@ -12,10 +12,9 @@ namespace DomainLogic.Entities
         public int OrderId { get; set; }
         public int ItemId { get; set; }
         public int Quantity { get; set; }
-
         public ItemsInOrder()
         {
-            
+            // entity fw usage only
         }
 
         public ItemsInOrder(int orderid, int itemid, int quantity)
@@ -26,7 +25,6 @@ namespace DomainLogic.Entities
             OrderId = orderid;
             ItemId = itemid;
             Quantity = quantity;
-
-        }
+        }  
     }
 }
