@@ -24,7 +24,7 @@ namespace Implementation.Repositories
 
         public List<ItemsInOrder> Find(int id)
         {
-            List<ItemsInOrder> outlist = EntitySet.Where(s => s.ItemId == id).ToList();
+            List<ItemsInOrder> outlist = EntitySet.Where(s => s.Id == id).ToList();
             return outlist;
 
         }

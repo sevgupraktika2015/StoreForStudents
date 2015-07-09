@@ -15,7 +15,7 @@ namespace Implementation.Mappings
             ToTable("Orders");
             HasKey(x => x.Id);
             Property(x => x.Id).HasColumnName("Id");
-            Property(x => x.UserId).HasColumnName("User");
+            Property(x => x.User).HasColumnName("User");
         }
     }
 }

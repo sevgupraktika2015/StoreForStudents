@@ -9,7 +9,7 @@ namespace DomainLogic.Entities
 {
     public class Order : BaseEntity
     {
-        public int UserId { set; get; }
+        public int User { set; get; }
         public Order()
         {
             //entity fw usage
@@ -18,7 +18,7 @@ namespace DomainLogic.Entities
         public Order(int userid = 0, int orderid = 0) : base(orderid)
         {
             Asserts.IsNotNegative(userid);
-            UserId = userid;
+            User = userid;
         } 
     }
 }

@@ -12,8 +12,8 @@ namespace Implementation.Mappings
     {
         public ItemsInOrderMap()
         {
-            ToTable("ItemsInOrder");
-            Property(x => x.OrderId).HasColumnName("IdOrder");
+            ToTable("ItemsInOrders");
+            Property(x => x.Id).HasColumnName("IdOrder");
             Property(x => x.ItemId).HasColumnName("IdItem");
             Property(x => x.Quantity).HasColumnName("Quantity");
         }
