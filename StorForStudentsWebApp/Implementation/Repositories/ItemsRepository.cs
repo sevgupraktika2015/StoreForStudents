@@ -56,6 +56,7 @@ namespace Implementation.Repositories
             }
             DbContext.SaveChanges();
         }
+
         public List<Item> GetAll()
         {
             List<Item> ilist = EntitySet.ToList();
@@ -68,6 +69,16 @@ namespace Implementation.Repositories
             if (!String.IsNullOrEmpty(searchString))
                 ilist = EntitySet.Where(s => s.Name.Contains(searchString)).ToList();
             return ilist;
+        }
+
+        public Item FindItem(Item inItem)
+        {
+            foreach (var item in EntitySet)
+            {
+                if(Equals(item,inItem)==true)
+                    return item;
+            }
+            return null;
         }
         
         /// <summary>

@@ -13,23 +13,47 @@ namespace Tests.ControllersTest.DeleteItemControllerTests
     [TestClass]
     public class DeleteControllerTest
     {
+        [TestInitialize]
+        public void del()
+        {
+            using (var context = new StoreDbContext())
+            {
+                context.Set<Item>().SqlQuery("delete from Items");
+            }  
+        }
+
+        public void createItem()
+        {
+            using (var context = new StoreDbContext())
+            {
+                context.Set<Item>().SqlQuery("insert into Items values('a',1,1,'a','a')");
+            }
+        }
+
+        
         [TestMethod]
         public void IndexDeleteController_ItemModel_Null()
         {
             // Arrange
+            ItemsRepository repository;
+            Item testItem;
+            ItemModel itemModel;
+            var controller = new DeleteItemController();
+            createItem();
             using (var context = new StoreDbContext())
             {
-                ItemsRepository repository = new ItemsRepository(context);
-                List<Item> items = new List<Item>();
-                //AddRequest();
-                items = repository.Find("asdf");
-                var controller = new DeleteItemController();
-                ItemModel itemModel;
-                //Act
-                itemModel = new ItemModel(items[0]);
-                controller.Index(itemModel);
+                repository = new ItemsRepository(context);
+                testItem = repository.Find("a")[0];
+            }
+            //Act
+            itemModel = new ItemModel(testItem);
+            controller.Index(itemModel);
+
+            using (var context = new StoreDbContext())
+            {
                 //Assert
-                Assert.AreEqual(repository.Find("asdf").Count, 0);
+                repository = new ItemsRepository(context);
+                Assert.AreEqual(repository.FindItem(testItem), null);
             }
         }
 

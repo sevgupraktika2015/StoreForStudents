@@ -1,12 +1,11 @@
-﻿using DomainLogic.Entities;
-using DomainLogic.Utilities;
-using Implementation.Repositories;
-using StorForStudentsWebApp.Models;
-using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using DomainLogic.Entities;
+using Implementation.Repositories;
+using StorForStudentsWebApp.Models;
+using DomainLogic.Utilities;
 
 namespace StorForStudentsWebApp.Controllers
 {
@@ -22,7 +21,7 @@ namespace StorForStudentsWebApp.Controllers
             {
                 ItemsRepository repository = new ItemsRepository(context);
                 Item delItem;
-                delItem = inItem.ConvertToItem();
+                delItem = repository.GetById(inItem.Id);
                 repository.DeleteItem(delItem);
             }
             return RedirectToAction("Index", "AdminCatalog");
