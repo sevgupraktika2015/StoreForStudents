@@ -19,16 +19,26 @@ namespace StorForStudentsWebApp.Models
             //entity only
         }
 
-        public OrderModel(int id, int user)
+        public OrderModel(Order order)
         {
-            Id = id;
-            User = user;
+            try
+            {
+                Asserts.IsNotNull(order);
+                Id = order.Id;
+                User = order.User;
+            }
+            catch
+            {
+                
+            }
         }
 
-        public OrderModel(int id, int user, List<OrderItem> items )
+        public OrderModel(Order order, List<OrderItem> items )
         {
-            Id = id;
-            User = user;
+            Asserts.IsNotNull(order);
+            Asserts.IsNotNull(items);
+            Id = order.Id;
+            User = order.User;
             Items = items;
         }
 
@@ -50,6 +60,7 @@ namespace StorForStudentsWebApp.Models
 
         public void AddItem(OrderItem item)
         {
+            Asserts.IsNotNull(item);
             Items.Add(item);
         }
     }

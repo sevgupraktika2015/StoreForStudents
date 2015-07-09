@@ -32,7 +32,7 @@ namespace StorForStudentsWebApp.Controllers
                 {
                    items.Add(new OrderItem(itemsRepository.GetById(itemInOrder.ItemId), itemInOrder.Quantity)); 
                 }
-                orderDto = new OrderModel(order.Id, order.User, items);
+                orderDto = new OrderModel(order, items);
             }
             return View(orderDto);
         }
