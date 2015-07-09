@@ -74,6 +74,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ControllersTest\BucketPartialControllerTest\ConstructorTest.cs" />
+    <Compile Include="ControllersTest\BucketPartialControllerTest\GetItemsCountInOrderTest.cs" />
+    <Compile Include="ControllersTest\BucketPartialControllerTest\GetOrderPriceTest.cs" />
     <Compile Include="ControllerTests\HomeControllerTests.cs" />
     <Compile Include="ControllerTests\SearchControllerTests.cs" />
     <Compile Include="ModelsTests\ItemModelTests.cs" />

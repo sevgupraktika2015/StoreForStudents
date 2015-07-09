@@ -1,7 +1,7 @@
 ﻿@if (Request.IsAuthenticated)
 {
     <div class="bucket-info navbar-right">
-        В вашей корзине @Html.Action("GetItemsCountInOrder", "BucketPartial") предметов. <br/>
+        В <a href="#">вашей корзине</a> @Html.Action("GetItemsCountInOrder", "BucketPartial") предметов. <br/>
         Общая стоимость: @Html.Action("GetOrderPrice", "BucketPartial")р.
     </div>
 }
