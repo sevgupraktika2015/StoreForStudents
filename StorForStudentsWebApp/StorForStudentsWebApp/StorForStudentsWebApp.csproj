@@ -165,6 +165,7 @@
     <Compile Include="Controllers\AdminCatalogController.cs" />
     <Compile Include="Controllers\DeleteItemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\BucketPartialController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -230,10 +231,12 @@
     <Content Include="Views\AddItem\Index.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\AdminCatalog\AdminCatalogTablePartialView.cshtml" />
+    <Content Include="Views\Shared\_BucketPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\DeleteItem\" />
+    <Folder Include="Views\LoginPartial\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
