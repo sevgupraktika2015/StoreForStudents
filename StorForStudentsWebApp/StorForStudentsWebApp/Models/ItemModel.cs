@@ -42,19 +42,19 @@ namespace StorForStudentsWebApp.Models
 
         public ItemModel(Item item)
         {
-            try
+            Asserts.IsNotNull(item);
+            Id = item.Id;
+            Name = item.Name;
+            Price = item.Price;
+            Quantity = item.Quantity;
+			Description = item.Description; 
+            if (string.IsNullOrEmpty (item.ImagePath)) 
             {
-                Asserts.IsNotNull(item);
-                Id = item.Id;
-                Name = item.Name;
-                Price = item.Price;
-                Quantity = item.Quantity;
-				Description = item.Description;
-           	    ImagePath = item.ImagePath;
-            }
-            catch
+                ImagePath = @"..\..\images\-1.jpg";
+            } 
+            else
             {
-
+                ImagePath = item.ImagePath;
             }
         }
 

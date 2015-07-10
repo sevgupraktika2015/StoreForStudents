@@ -2,16 +2,15 @@
     ViewBag.Title = "Home Page";
 }
 
-
 @model List <StorForStudentsWebApp.Models.ItemModel>
-
-
 
 <h2>Список товаров</h2>
 
-
 <table class="table table-striped table-hover">
     <tr>
+        <th>
+            Изображение
+        </th>
         <th>
             @Html.DisplayNameFor(model => model[0].Name)
         </th>
@@ -21,13 +20,16 @@
         <th>
             @Html.DisplayNameFor(model => model[0].Quantity)
         </th>
-     
     </tr>
 
     @foreach (var item in Model) 
     {
         <tr>
-            
+            <td>
+                <div>
+                    <img src="@item.ImagePath" height="100px" >
+                </div>
+            </td>
             <td>
                 @Html.ActionLink(item.Name, "Details/" + item.Id)
                 
@@ -40,6 +42,5 @@
             </td>
         </tr>
     }
-    
-
+ 
 </table>
