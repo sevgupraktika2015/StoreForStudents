@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using DomainLogic.Entities;
 using DomainLogic.Utilities;
+using Microsoft.Ajax.Utilities;
 
 namespace StorForStudentsWebApp.Models
 {
@@ -16,30 +17,32 @@ namespace StorForStudentsWebApp.Models
 
         public OrderModel()
         {
+            Items = new List<OrderItem>();
             //entity only
         }
 
-        public OrderModel(Order order)
+        public OrderModel(Order order) : base()
         {
-            try
-            {
                 Asserts.IsNotNull(order);
                 Id = order.Id;
                 User = order.User;
-            }
-            catch
-            {
-                
-            }
         }
 
-        public OrderModel(Order order, List<OrderItem> items )
+        public OrderModel(Order order, List<Item> items)
+            : base()
         {
             Asserts.IsNotNull(order);
             Asserts.IsNotNull(items);
             Id = order.Id;
             User = order.User;
-            Items = items;
+            foreach (var itemInOrder in order.Items)
+            {
+                Item myItem = items.First(s => s.Id == itemInOrder.ItemId);
+                if (myItem != null)
+                {
+                    Items.Add(new OrderItem(myItem, itemInOrder.Quantity));   
+                }
+            }
         }
 
         public Order ConvertToOrder()

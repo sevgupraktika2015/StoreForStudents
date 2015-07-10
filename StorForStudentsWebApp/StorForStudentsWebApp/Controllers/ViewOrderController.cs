@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Xsl;
 using DomainLogic.Entities;
 using DomainLogic.Repositories;
 using Implementation.Repositories;
@@ -24,22 +25,22 @@ namespace StorForStudentsWebApp.Controllers
             List<OrderModel> orderDto = new List<OrderModel>();
             using (var context = new StoreDbContext())
             {
-                var ordersRepository = new OrdersRepository(context);
-                var itemsInOrderRepository = new ItemsInOrdersRepository(context);
-                var itemsRepository = new ItemsRepository(context);
-                List<Order> orders = ordersRepository.FindByUser(id);
+                IOrdersReporitory ordersRepository = new OrdersRepository(context);
+                //IItemsInOrdersRepository itemsInOrderRepository = new ItemsInOrdersRepository(context);
+                IItemsRepository itemsRepository = new ItemsRepository(context);
+                List<Order> orders = ordersRepository.GetByUserId(id);
+                List<Item> items = itemsRepository.GetAll();
                 foreach (var order in orders)
                 {
-                    List<ItemsInOrder> itemsInOrder = itemsInOrderRepository.Find(order.Id);
-                    List<OrderItem> items = new List<OrderItem>();
-                    foreach (var itemInOrder in itemsInOrder)
-                    {
-                        items.Add(new OrderItem(itemsRepository.GetById(itemInOrder.ItemId), itemInOrder.Quantity));
-                    }
                     orderDto.Add(new OrderModel(order, items));
-                }
+                } 
             }
             return View(orderDto);
+        }
+
+        public ActionResult Details(OrderModel  order)
+        {
+            return View(order);
         }
 	}
 }

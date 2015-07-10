@@ -22,15 +22,15 @@ namespace Implementation.Repositories
             EntitySet = dbContext.Set<Order>();
         }
 
-        public Order Find(int id)
+        public Order GetById(int id)
         {
             Order current = EntitySet.Find(id);
             return current;
         }
 
-        public List<Order> FindByUser(int user)
+        public List<Order> GetByUserId(int userid)
         {
-            List<Order> current = EntitySet.Where(s => s.User == user).ToList();
+            List<Order> current = EntitySet.Where(s => s.User == userid).ToList();
             return current;
         }
     }

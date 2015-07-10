@@ -15,12 +15,9 @@ namespace Tests.ControllersTest.SearchControllerTests
     {
         public void Insert()
         {
-            Item testItem = new Item("h", 10, 1);
             using (var context = new StoreDbContext())
             {
-                IItemsRepository repository = new ItemsRepository(context);
-                repository.SaveItem(testItem);
-                context.SaveChanges();
+                context.Set<Item>().SqlQuery("insert into Items values('1', 1, 1)");
             }
 
         }
@@ -29,9 +26,7 @@ namespace Tests.ControllersTest.SearchControllerTests
         {
             using (var context = new StoreDbContext())
             {
-                IItemsRepository repository = new ItemsRepository(context);
-                repository.DeleteAll();
-                context.SaveChanges();
+                context.Set<Item>().SqlQuery("delete from Items");
             } 
         }
         [TestMethod]

@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using Implementation.Mappings;
+using DomainLogic.Entities;
 
 
 namespace Implementation.Repositories

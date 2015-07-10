@@ -10,6 +10,7 @@ namespace DomainLogic.Entities
     public class Order : BaseEntity
     {
         public int User { set; get; }
+        public List<ItemsInOrder> Items { get; set; }
         public Order()
         {
             //entity fw usage
