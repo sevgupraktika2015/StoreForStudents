@@ -71,7 +71,6 @@ namespace Implementation.Repositories
             return ilist;
         }
 
-<<<<<<< HEAD
         public List<Item> GetViewItems(List<ItemsInOrder> itemsInOrders)
         {
             List<Item> outlist = new List<Item>();
@@ -83,7 +82,6 @@ namespace Implementation.Repositories
             return outlist;
         }
 
-=======
         public Item FindItem(Item inItem)
         {
             foreach (var item in EntitySet)
@@ -94,7 +92,6 @@ namespace Implementation.Repositories
             return null;
         }
         
->>>>>>> 53f36446ddcccaf171ac1b5fa9ab115e4952f2f6
         /// <summary>
         /// Returns item by its id
         /// </summary>
