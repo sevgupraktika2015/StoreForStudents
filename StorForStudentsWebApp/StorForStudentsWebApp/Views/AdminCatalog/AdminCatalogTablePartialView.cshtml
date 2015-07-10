@@ -10,8 +10,8 @@
         <th>
             Количество
         </th>
-        <th colspan="3">
-            Удаление/Редактирование/Сведения
+        <th colspan="2">
+            Удаление/Сведения
         </th>
     </tr>
 
@@ -36,15 +36,7 @@
                 }
             </td>
             <td>
-                @using (Html.BeginForm("Edit", "Home", item.Id))
-                {
-                    <div class="form-horizontal">
-                        <input type="submit" value="Редактирование" />
-                    </div>
-                }
-            </td>
-            <td>
-                @using (Html.BeginForm("Details", "Home", item.Id))
+                @using (Html.BeginForm("Details", "AdminCatalog", new { id = item.Id }))
                 {
                     <div class="form-horizontal">
                         <input type="submit" value="Детали" />
