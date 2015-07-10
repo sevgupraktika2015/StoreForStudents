@@ -43,7 +43,7 @@ namespace Tests.ControllersTest.DeleteItemControllerTests
             using (var context = new StoreDbContext())
             {
                 repository = new ItemsRepository(context);
-                testItem = repository.Find("a")[0];
+                testItem = repository.GetAll()[0];
             }
             //Act
             itemModel = new ItemModel(testItem);
