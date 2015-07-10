@@ -43,11 +43,9 @@ namespace Implementation.Repositories
 
         public void DeleteItem(Item delitem)
         {
-            foreach (var item in EntitySet)
-            {
-                if (Equals(item, delitem) == true)
-                    EntitySet.Remove(delitem);
-            }
+            Asserts.IsNotNull(delitem);
+            EntitySet.Remove(delitem);
+            DbContext.SaveChanges();
         }
 
         public void DeleteAll() 
@@ -56,7 +54,9 @@ namespace Implementation.Repositories
             {
                 EntitySet.Remove(item);
             }
+            DbContext.SaveChanges();
         }
+
         public List<Item> GetAll()
         {
             List<Item> ilist = EntitySet.ToList();
@@ -71,6 +71,7 @@ namespace Implementation.Repositories
             return ilist;
         }
 
+<<<<<<< HEAD
         public List<Item> GetViewItems(List<ItemsInOrder> itemsInOrders)
         {
             List<Item> outlist = new List<Item>();
@@ -82,6 +83,18 @@ namespace Implementation.Repositories
             return outlist;
         }
 
+=======
+        public Item FindItem(Item inItem)
+        {
+            foreach (var item in EntitySet)
+            {
+                if(Equals(item,inItem)==true)
+                    return item;
+            }
+            return null;
+        }
+        
+>>>>>>> 53f36446ddcccaf171ac1b5fa9ab115e4952f2f6
         /// <summary>
         /// Returns item by its id
         /// </summary>

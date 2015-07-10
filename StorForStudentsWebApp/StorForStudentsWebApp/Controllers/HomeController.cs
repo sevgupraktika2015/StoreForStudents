@@ -11,7 +11,6 @@ namespace StorForStudentsWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        
         public ActionResult Details(int id)
         {
             if (id == null)

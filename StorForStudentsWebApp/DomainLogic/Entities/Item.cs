@@ -40,7 +40,9 @@ namespace DomainLogic.Entities
             if (item1.Name.Equals(item2.Name)         &&
                 item1.Price.Equals(item2.Price)       &&
                 item1.Quantity.Equals(item2.Quantity) &&
-                item1.Id.Equals(item2.Id))
+                item1.Id.Equals(item2.Id)             &&
+                item1.Description.Equals(item2.Description) &&
+                item1.ImagePath.Equals(item2.ImagePath))
                 return true;
             else
                 return false;

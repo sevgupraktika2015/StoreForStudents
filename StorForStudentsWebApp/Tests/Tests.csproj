@@ -82,7 +82,7 @@
     <Compile Include="ModelsTests\ItemModelTests.cs" />
     <Compile Include="ControllersTest\AddItemControllerTests\CreateTest.cs" />
     <Compile Include="ControllersTest\AdminCatalogControllerTests\IndexTest.cs" />
-    <Compile Include="ControllersTest\DeleteItemControllerTests\DeleteTest.cs" />
+    <Compile Include="ControllersTest\DeleteItemControllerTests\DeleteControllerTest.cs" />
     <Compile Include="ControllersTest\HomeControllerTests\HomeControllerIndexTest.cs" />
     <Compile Include="ControllersTest\SearchControllerTests\SearchControllerIndexTest.cs" />
     <Compile Include="ModelsTests\OrderModelTests.cs" />
@@ -90,8 +90,12 @@
     <Compile Include="RepositoriesTests\ItemsRepositoryClassTests\ConstructorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoriesTests\ItemsRepositoryClassTests\SaveItemTest.cs" />
+<<<<<<< HEAD
     <Compile Include="RepositoriesTests\ItemsRepositoryClassTests\DeleteTest.cs" />
     <Compile Include="RepositoriesTests\OrdersRepositoryClassTests\ConstructorTest.cs" />
+=======
+    <Compile Include="RepositoriesTests\ItemsRepositoryClassTests\DeleteRepositoryTest.cs" />
+>>>>>>> 53f36446ddcccaf171ac1b5fa9ab115e4952f2f6
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
