@@ -13,7 +13,7 @@ namespace Tests.ModelsTests
         [TestMethod]
         public void Constructor_IntInt_notNull()
         {
-            Order order = new Order(1, 1);
+            Order order = new Order("1", 1);
             OrderModel orderModel = new OrderModel(order);
             Assert.IsNotNull(orderModel);
         }
@@ -24,7 +24,7 @@ namespace Tests.ModelsTests
             Item item = new Item("1", 1, 1);
             List<OrderItem> items = new List<OrderItem>();
             items.Add(new OrderItem(item, 1));
-            Order order = new Order(1, 1);
+            Order order = new Order("1", 1);
             OrderModel orderModel = new OrderModel(order, items);
             Assert.IsNotNull(orderModel);
         }
@@ -37,7 +37,7 @@ namespace Tests.ModelsTests
         [TestMethod]
         public void ConvertToOrder_Null_Equal()
         {
-            Order order = new Order(1, 2);
+            Order order = new Order("1", 2);
             OrderModel orderModel = new OrderModel(order);
             Assert.AreEqual(order.Id, orderModel.ConvertToOrder().Id);
             Assert.AreEqual(order.User, orderModel.ConvertToOrder().User);
@@ -46,7 +46,7 @@ namespace Tests.ModelsTests
         [TestMethod]
         public void ConvertToItemsInOrder_Null_Equal()
         {
-            Order order = new Order(1, 1);
+            Order order = new Order("1", 1);
             Item item = new Item("1", 1, 1, 2);
             List<OrderItem> items = new List<OrderItem>();
             items.Add(new OrderItem(item, 3));

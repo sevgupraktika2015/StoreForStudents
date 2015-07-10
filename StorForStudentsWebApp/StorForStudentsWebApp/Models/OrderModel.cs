@@ -11,7 +11,7 @@ namespace StorForStudentsWebApp.Models
     public class OrderModel
     {
         public int Id { get; set; }
-        public int User { get; set; }
+        public string User { get; set; }
         public List<OrderItem> Items;
 
         public OrderModel()

@@ -9,15 +9,15 @@ namespace DomainLogic.Entities
 {
     public class Order : BaseEntity
     {
-        public int User { set; get; }
+        public string User { set; get; }
         public Order()
         {
             //entity fw usage
         }
 
-        public Order(int userid = 0, int orderid = 0) : base(orderid)
+        public Order(string userid = "", int orderid = 0) : base(orderid)
         {
-            Asserts.IsNotNegative(userid);
+            Asserts.IsNotNullOrEmpty(userid);
             User = userid;
         } 
     }
