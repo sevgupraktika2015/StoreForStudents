@@ -20,5 +20,7 @@ namespace DomainLogic.Repositories
         void DeleteItem(Item delitem);
         List<Item> GetAll();
         List<Item> Find(string searchString);
+
+        List<Item> GetViewItems(List<ItemsInOrder> itemsInOrders);
     }
 }

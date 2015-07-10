@@ -19,9 +19,13 @@ namespace Implementation.Repositories
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new MapItem());
+            modelBuilder.Configurations.Add(new OrderMap());
+            modelBuilder.Configurations.Add(new ItemsInOrderMap());
             base.OnModelCreating(modelBuilder);
         }
 
         public System.Data.Entity.DbSet<DomainLogic.Entities.Item> Items { get; set; }
+        public System.Data.Entity.DbSet<DomainLogic.Entities.Order> Orders { get; set; }
+        public System.Data.Entity.DbSet<DomainLogic.Entities.ItemsInOrder> ItemsInOrders { get; set; }
     }
 }
