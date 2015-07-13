@@ -19,6 +19,7 @@ namespace Tests.ModelsTests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void Constructor_null_exception()
         {
             new ItemModel(null);
