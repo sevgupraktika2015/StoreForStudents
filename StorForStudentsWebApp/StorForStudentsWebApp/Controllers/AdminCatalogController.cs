@@ -13,26 +13,30 @@ namespace StorForStudentsWebApp.Controllers
     public class AdminCatalogController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private int itemsOnPage = 15;
+
         // GET: AdminCatalog
         public ActionResult Index(int? page)
         {
             ViewBag.Pager = Pager.Items(100).PerPage(10).Move(page ?? 1).Segment(5).Center();
+            if (page == null)
+                page = 1;
             IList<ItemModel> itemList;
             using (var context = new StoreDbContext())
             {
                 ItemsRepository repository = new ItemsRepository(context);
                 itemList = ItemModel.ToModel(repository.GetAll());
             }
-            /*IList<ItemModel> resultList = null;
+            List<ItemModel> resultList = new List<ItemModel>();
             long i=0;
             foreach (ItemModel itemModel in itemList)
             {
-                if (i >= page * 15 && i < (page + 1) * 15)
+                if (i >= (page - 1) * itemsOnPage && i < (page) * itemsOnPage)
                     resultList.Add(itemModel);
                 i++;
             }
-            return View("Index", new AdminCatalogViewModel(resultList));*/
-            return View("Index", new AdminCatalogViewModel(itemList));
+            return View("Index", new AdminCatalogViewModel(resultList));
+            //return View("Index", new AdminCatalogViewModel(itemList));
         }
 
         protected override void Dispose(bool disposing)
