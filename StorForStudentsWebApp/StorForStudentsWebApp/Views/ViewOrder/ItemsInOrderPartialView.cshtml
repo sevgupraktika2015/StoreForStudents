@@ -1,0 +1,18 @@
+﻿@model StorForStudentsWebApp.Models.OrderModel
+
+<table class="table">
+    <tr class="tab-content">
+        <td>Name</td>
+        <td>Quantity</td>
+        <td>Total Price </td>
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+        <tr class="tab-content">
+            <td>@item.Item.Name</td>
+            <td>@item.Quantity</td>
+            <td></td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,25 @@
+﻿@model System.Collections.Generic.IEnumerable<StorForStudentsWebApp.Models.OrderModel>
+
+<table class="table">
+    <tr class="tab-content">
+        <td>Order ID</td>
+        <td>Link</td>
+    </tr>
+
+    @foreach (var order in Model)
+    {
+        <tr class="tab-content">
+            <td>@order.Id</td>
+            <td></td>
+            <td></td>
+        </tr>
+        foreach (var item in @order.Items)
+         {
+             <tr class="tab-content">
+                 <td></td>
+                 <td>@item.Item.Name</td>
+                 <td>@item.Quantity</td>
+             </tr>
+         }
+    }
+</table>
