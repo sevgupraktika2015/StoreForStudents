@@ -17,7 +17,7 @@ namespace Implementation.Mappings
             HasKey(x => x.Id);
             Property(x => x.Id).HasColumnName("Id");
             Property(x => x.User).HasColumnName("User");
-            HasMany(x => x.Items).WithRequired(x => x.Order).HasForeignKey(x => x.Id);
+            HasMany(x => x.Items).WithRequired(x => x.Order).HasForeignKey(x => x.OrderId);
         }
     }
 }

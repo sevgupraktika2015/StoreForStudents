@@ -21,27 +21,25 @@ namespace StorForStudentsWebApp.Models
             //entity only
         }
 
-        public OrderModel(Order order) : base()
+        public OrderModel(Order order)
         {
                 Asserts.IsNotNull(order);
+                Items = new List<OrderItem>();
                 Id = order.Id;
                 User = order.User;
         }
 
         public OrderModel(Order order, List<Item> items)
-            : base()
         {
             Asserts.IsNotNull(order);
             Asserts.IsNotNull(items);
             Id = order.Id;
             User = order.User;
+            Items = new List<OrderItem>();
             foreach (var itemInOrder in order.Items)
             {
-                Item myItem = items.First(s => s.Id == itemInOrder.ItemId);
-                if (myItem != null)
-                {
-                    Items.Add(new OrderItem(myItem, itemInOrder.Quantity));   
-                }
+                Item myItem = items.First(s => s.Id == itemInOrder.Id);
+                Items.Add(new OrderItem(myItem, itemInOrder)); 
             }
         }
 

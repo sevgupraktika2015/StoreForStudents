@@ -13,10 +13,10 @@ namespace Implementation.Mappings
         public ItemsInOrderMap()
         {
             ToTable("ItemsInOrders");
-            Property(x => x.Id).HasColumnName("IdOrder");
-            Property(x => x.ItemId).HasColumnName("IdItem");
+            Property(x => x.Id).HasColumnName("IdItem");
+            Property(x => x.OrderId).HasColumnName("IdOrder");
             Property(x => x.Quantity).HasColumnName("Quantity");
-            HasRequired(x => x.Order).WithMany(s => s.Items).HasForeignKey(x => x.Id);
+            HasRequired(x => x.Order).WithMany(s => s.Items).HasForeignKey(x => x.OrderId);
         }
     }
 }

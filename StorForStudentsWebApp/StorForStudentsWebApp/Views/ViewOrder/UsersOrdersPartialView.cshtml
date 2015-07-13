@@ -8,9 +8,17 @@
 
     @foreach (var order in Model)
     {
-       <tr class="tab-content">
-        <td>@order.Id</td>
-        <td>@Html.ActionLink("Details on order", "Details", order)</td>
-    </tr> 
+        <tr class="tab-content">
+            <td>@order.Id</td>
+            <td>@Html.ActionLink("Details on order", "Details", @order)</td>
+        </tr>
+        foreach (var item in @order.Items)
+         {
+             <tr class="tab-content">
+                 <td></td>
+                 <td>@item.Item.Name</td>
+                 <td>@item.Quantity</td>
+             </tr>
+         }
     }
 </table>

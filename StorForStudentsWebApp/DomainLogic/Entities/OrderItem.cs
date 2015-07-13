@@ -11,10 +11,10 @@ namespace DomainLogic.Entities
         public Item Item;
         public int Quantity;
 
-        public OrderItem(Item item, int quantity)
+        public OrderItem(Item item, ItemsInOrder order)
         {
             Item = item;
-            Quantity = quantity;
+            Quantity = order.Id;
         }
     }
 }

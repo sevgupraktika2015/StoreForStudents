@@ -16,6 +16,7 @@ namespace StorForStudentsWebApp.Controllers
         //
         // GET: /ViewOrder/
         public ActionResult Index(int? userid)
+        
         {
             int id = 0;
             if (userid != null)
@@ -26,7 +27,6 @@ namespace StorForStudentsWebApp.Controllers
             using (var context = new StoreDbContext())
             {
                 IOrdersReporitory ordersRepository = new OrdersRepository(context);
-                //IItemsInOrdersRepository itemsInOrderRepository = new ItemsInOrdersRepository(context);
                 IItemsRepository itemsRepository = new ItemsRepository(context);
                 List<Order> orders = ordersRepository.GetByUserId(id);
                 List<Item> items = itemsRepository.GetAll();

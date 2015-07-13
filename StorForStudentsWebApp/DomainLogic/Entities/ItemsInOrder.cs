@@ -9,19 +9,19 @@ namespace DomainLogic.Entities
 {
     public class ItemsInOrder : BaseEntity
     {
-        public int ItemId { get; set; }
+        public int OrderId { get; set; }
         public int Quantity { get; set; }
-        public Order Order { get; set; }
+        public virtual Order Order { get; set; }
         public ItemsInOrder()
         {
             // entity fw usage only
         }
 
-        public ItemsInOrder(int orderid, int itemid, int quantity) : base(orderid)
+        public ItemsInOrder(int orderid, int itemid, int quantity) : base(itemid)
         {
             Asserts.IsNotNegative(itemid);
             Asserts.IsNotNegative(quantity);
-            ItemId = itemid;
+            OrderId = orderid;
             Quantity = quantity;
         }  
     }

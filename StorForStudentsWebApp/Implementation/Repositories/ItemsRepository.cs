@@ -76,7 +76,7 @@ namespace Implementation.Repositories
             List<Item> outlist = new List<Item>();
             foreach (var item in itemsInOrders)
             {
-                List<Item> current = EntitySet.Where(s => s.Id == item.ItemId).ToList();
+                List<Item> current = EntitySet.Where(s => s.Id == item.OrderId).ToList();
                 outlist.AddRange(current);
             }
             return outlist;

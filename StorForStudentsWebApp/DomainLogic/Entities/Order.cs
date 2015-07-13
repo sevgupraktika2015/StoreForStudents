@@ -10,9 +10,10 @@ namespace DomainLogic.Entities
     public class Order : BaseEntity
     {
         public int User { set; get; }
-        public List<ItemsInOrder> Items { get; set; }
+        public virtual ICollection<ItemsInOrder> Items { get; set; }
         public Order()
         {
+            Items = new List<ItemsInOrder>();
             //entity fw usage
         }
 
@@ -20,6 +21,7 @@ namespace DomainLogic.Entities
         {
             Asserts.IsNotNegative(userid);
             User = userid;
+            Items = new List<ItemsInOrder>();
         } 
     }
 }
