@@ -37,7 +37,7 @@ namespace Tests.ControllersTests.AdminCatalogControllerTests
             {
                 ItemsRepository repository = new ItemsRepository(context);
                 item = new Item("item", 12, 12, 33, "desc", "IP");
-                repository.DeleteAll();
+                Delete();
                 repository.AddItem(item);
                 find = repository.Find(item.Name).ToArray();
             }
@@ -58,7 +58,7 @@ namespace Tests.ControllersTests.AdminCatalogControllerTests
             {
                 ItemsRepository repository = new ItemsRepository(context);
                 item = new Item("item", 12, 12, 33, "desc", "IP");
-                repository.DeleteAll();
+                Delete();
                 repository.SaveItem(item);
                 find = repository.Find(item.Name).ToArray();
             }
@@ -69,6 +69,15 @@ namespace Tests.ControllersTests.AdminCatalogControllerTests
 
             Assert.IsNotNull(product.Name);
 
+        }
+
+        public void Delete()
+        {
+            using (var context = new StoreDbContext())
+            {
+                context.Set<ItemsInOrder>().SqlQuery("delete from ItemsInOrders");
+                context.Set<Item>().SqlQuery("delete from Items");
+            } 
         }
     }
 }

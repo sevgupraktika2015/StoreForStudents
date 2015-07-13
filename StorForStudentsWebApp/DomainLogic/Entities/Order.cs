@@ -22,6 +22,14 @@ namespace DomainLogic.Entities
             Asserts.IsNotNegative(userid);
             User = userid;
             Items = new List<ItemsInOrder>();
+        }
+        public Order(List<ItemsInOrder> items, int userid = 0, int orderid = 0)
+            : base(orderid)
+        {
+            Asserts.IsNotNegative(userid);
+            Asserts.IsNotNull(items);
+            User = userid;
+            Items = items;
         } 
     }
 }

@@ -21,12 +21,10 @@ namespace Tests.ModelsTests
         [TestMethod]
         public void Constructor_IntIntList_notNull()
         {
-            Item item = new Item("1", 1, 1);
-            List<OrderItem> items = new List<OrderItem>();
-            items.Add(new OrderItem(item, 1));
+            List<Item> items = new List<Item>();
             Order order = new Order(1, 1);
-           // OrderModel orderModel = new OrderModel(order, items);
-            //Assert.IsNotNull(orderModel);
+            OrderModel orderModel = new OrderModel(order, items);
+            Assert.IsNotNull(orderModel);
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
@@ -47,16 +45,19 @@ namespace Tests.ModelsTests
         [TestMethod]
         public void ConvertToItemsInOrder_Null_Equal()
         {
-            Order order = new Order(1, 1);
-            Item item = new Item("1", 1, 1, 2);
-            List<OrderItem> items = new List<OrderItem>();
-            items.Add(new OrderItem(item, 3));
+            ItemsInOrder itemsInOrder = new ItemsInOrder(1, 1, 3);
+            List<ItemsInOrder> orderitems = new List<ItemsInOrder>();
+            orderitems.Add(itemsInOrder);
+            Order order = new Order(orderitems, 1, 1);
+            Item item = new Item("a",1, 1, 1);
+            List<Item> items = new List<Item>();
+            items.Add(item);
 
-            //OrderModel orderModel = new OrderModel(order, items);
+            OrderModel orderModel = new OrderModel(order, items);
 
-            //Assert.AreEqual(order.Id, orderModel.ConvertToItemsInOrder().First().Id);
-            //Assert.AreEqual(item.Id, orderModel.ConvertToItemsInOrder().First().ItemId);
-            //Assert.AreEqual(3, orderModel.ConvertToItemsInOrder().First().Quantity);
+            Assert.AreEqual(order.Id, orderModel.ConvertToItemsInOrder().First().OrderId);
+            Assert.AreEqual(item.Id, orderModel.ConvertToItemsInOrder().First().Id);
+            Assert.AreEqual(3, orderModel.ConvertToItemsInOrder().First().Quantity);
         } 
     }
 }

@@ -14,7 +14,7 @@ namespace DomainLogic.Entities
         public OrderItem(Item item, ItemsInOrder order)
         {
             Item = item;
-            Quantity = order.Id;
+            Quantity = order.Quantity;
         }
     }
 }

@@ -39,7 +39,8 @@ namespace StorForStudentsWebApp.Models
             foreach (var itemInOrder in order.Items)
             {
                 Item myItem = items.First(s => s.Id == itemInOrder.Id);
-                Items.Add(new OrderItem(myItem, itemInOrder)); 
+                if (myItem != null)
+                    Items.Add(new OrderItem(myItem, itemInOrder)); 
             }
         }
 

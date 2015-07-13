@@ -17,7 +17,8 @@ namespace Tests.ControllersTest.SearchControllerTests
         {
             using (var context = new StoreDbContext())
             {
-                context.Set<Item>().SqlQuery("insert into Items values('1', 1, 1)");
+                context.Database.ExecuteSqlCommand("insert into Items values('1', 1, 1, '1', '1')");
+                context.SaveChanges();
             }
 
         }
@@ -26,8 +27,9 @@ namespace Tests.ControllersTest.SearchControllerTests
         {
             using (var context = new StoreDbContext())
             {
-                context.Set<Item>().SqlQuery("delete from ItemsInOrder");
-                context.Set<Item>().SqlQuery("delete from Items");
+                context.Database.ExecuteSqlCommand("delete from ItemsInOrders");
+                context.Database.ExecuteSqlCommand("delete from Items");
+                context.SaveChanges();
             } 
         }
         [TestMethod]
