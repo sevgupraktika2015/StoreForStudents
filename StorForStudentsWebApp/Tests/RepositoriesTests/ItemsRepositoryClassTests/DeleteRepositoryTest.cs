@@ -35,7 +35,7 @@ namespace Tests.RepositoriesTests.ItemsRepositoryClassTests
             using (StoreDbContext context = new StoreDbContext())
             {
                 IItemsRepository repository = new ItemsRepository(context);
-                Item testItem = repository.Find("a")[0];
+                Item testItem = repository.GetAll()[0];
                 //Act
                 repository.DeleteItem(testItem);
                 //Assert

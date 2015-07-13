@@ -22,7 +22,7 @@ namespace Tests.ControllersTests.AdminCatalogControllerTests
             // Arrange
             var controller = new AdminCatalogController();
             //Act
-            var result = controller.Index() as ViewResult;
+            var result = controller.Index(1) as ViewResult;
             //Assert
             Asserts.IsNotNull(result, "Should have returned a ViewResult");
         }
