@@ -1,0 +1,9 @@
+﻿@model StorForStudentsWebApp.Models.OrderModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Order @Model.Id, by sweet potato @Model.User</h2>
+@Html.Partial("ItemsInOrderPartialView", @Model)

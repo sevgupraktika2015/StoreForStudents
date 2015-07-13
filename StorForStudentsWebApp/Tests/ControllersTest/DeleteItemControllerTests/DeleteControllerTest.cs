@@ -18,6 +18,7 @@ namespace Tests.ControllersTest.DeleteItemControllerTests
         {
             using (var context = new StoreDbContext())
             {
+                context.Set<ItemsInOrder>().SqlQuery("delete from ItemsInOrders");
                 context.Set<Item>().SqlQuery("delete from Items");
             }  
         }

@@ -15,8 +15,10 @@ namespace Tests.RepositoriesTests.ItemsRepositoryClassTests
         {
             using (var context = new StoreDbContext())
             {
-                context.Set<Item>().SqlQuery("delete from Items");
-            }
+                context.Database.ExecuteSqlCommand("delete from ItemsInOrders");
+                context.Database.ExecuteSqlCommand("delete from Items");
+                context.SaveChanges();
+            } 
         }
 
         public void createItem()
@@ -31,6 +33,7 @@ namespace Tests.RepositoriesTests.ItemsRepositoryClassTests
         public void DeleteRepository_Item_Void()
         {
             // Arrange
+            del();
             createItem();
             using (StoreDbContext context = new StoreDbContext())
             {

@@ -70,7 +70,16 @@ namespace Implementation.Repositories
                 ilist = EntitySet.Where(s => s.Name.Contains(searchString)).ToList();
             return ilist;
         }
-
+        public List<Item> GetViewItems(List<ItemsInOrder> itemsInOrders)
+        {
+            List<Item> outlist = new List<Item>();
+            foreach (var item in itemsInOrders)
+            {
+                List<Item> current = EntitySet.Where(s => s.Id == item.OrderId).ToList();
+                outlist.AddRange(current);
+            }
+            return outlist;
+        }
         public Item FindItem(Item inItem)
         {
             foreach (var item in EntitySet)
@@ -80,7 +89,6 @@ namespace Implementation.Repositories
             }
             return null;
         }
-        
         /// <summary>
         /// Returns item by its id
         /// </summary>

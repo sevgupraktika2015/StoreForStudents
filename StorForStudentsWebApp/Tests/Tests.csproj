@@ -74,6 +74,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ControllersTest\ViewOrderControllerTests\ViewOrderControllerTest.cs" />
     <Compile Include="ControllerTests\SearchControllerTests.cs" />
     <Compile Include="ModelsTests\ItemModelTests.cs" />
     <Compile Include="ControllersTest\AddItemControllerTests\CreateTest.cs" />
@@ -81,9 +82,12 @@
     <Compile Include="ControllersTest\DeleteItemControllerTests\DeleteControllerTest.cs" />
     <Compile Include="ControllersTest\HomeControllerTests\HomeControllerIndexTest.cs" />
     <Compile Include="ControllersTest\SearchControllerTests\SearchControllerIndexTest.cs" />
+    <Compile Include="ModelsTests\OrderModelTests.cs" />
+    <Compile Include="RepositoriesTests\ItemsInOrdersClassTests\ConstructorTests.cs" />
     <Compile Include="RepositoriesTests\ItemsRepositoryClassTests\ConstructorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoriesTests\ItemsRepositoryClassTests\SaveItemTest.cs" />
+    <Compile Include="RepositoriesTests\OrdersRepositoryClassTests\ConstructorTest.cs" />
     <Compile Include="RepositoriesTests\ItemsRepositoryClassTests\DeleteRepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
