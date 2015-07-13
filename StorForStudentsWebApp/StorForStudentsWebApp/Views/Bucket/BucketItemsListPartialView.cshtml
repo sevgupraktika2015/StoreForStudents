@@ -1,0 +1,21 @@
+﻿@using StorForStudentsWebApp.Models
+<table class="table table-striped">
+    <thead>
+    <th>Название товара</th>
+    <th>Количество</th>
+    <th>Общая стоимость</th>
+    <th>Увеличить/уменьшить кол-во</th>
+    <th>Удалить</th>
+    </thead>
+    @foreach (var point in Model.Order.ItemsMap)
+    {
+        <tr>
+            <td>@point.Key.Name</td>
+            <td>@point.Value</td>
+            <td>@(point.Value * point.Key.Price)</td>
+            <td><button>+</button><button>-</button></td>
+            <td><button>Удалить из корзины</button></td>
+        </tr>
+    }
+    <tr><td></td><td><b>Итого:</b></td><td>@Model.BucketPrice()</td><td></td><td></td></tr>
+</table>

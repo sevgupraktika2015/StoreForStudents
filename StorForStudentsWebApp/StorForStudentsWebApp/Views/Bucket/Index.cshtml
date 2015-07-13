@@ -1,0 +1,9 @@
+﻿@using StorForStudentsWebApp.Models
+@model BucketViewModel
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ваша корзина.</h2>
+@Html.Partial("BucketItemsListPartialView", Model)

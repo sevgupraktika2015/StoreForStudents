@@ -163,6 +163,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddItemController.cs" />
     <Compile Include="Controllers\AdminCatalogController.cs" />
+    <Compile Include="Controllers\BucketController.cs" />
     <Compile Include="Controllers\DeleteItemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -171,6 +172,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminCatalogViewModel.cs" />
+    <Compile Include="Models\BucketViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -230,6 +232,8 @@
     <Content Include="Views\AddItem\Index.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\AdminCatalog\AdminCatalogTablePartialView.cshtml" />
+    <Content Include="Views\Bucket\Index.cshtml" />
+    <Content Include="Views\Bucket\BucketItemsListPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
