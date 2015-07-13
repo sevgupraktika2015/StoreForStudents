@@ -11,10 +11,9 @@ namespace StorForStudentsWebApp.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection")
+            : base("StoreDBConnection")
         {
         }
-
         public System.Data.Entity.DbSet<DomainLogic.Entities.Item> Items { get; set; }
 
         public System.Data.Entity.DbSet<StorForStudentsWebApp.Models.ItemModel> ItemModels { get; set; }

@@ -1,22 +1,12 @@
-﻿@model StorForStudentsWebApp.Models.ItemModel
+﻿@using StorForStudentsWebApp.Models
+@model AdminCatalogViewModel
 
 @{
     ViewBag.Title = "Добавить товар.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Добавление товара в каталог</h2>
-<form action="/AddItem/Create" method="post">
-    <div class="item">
-        <input type="text" id="Name" name="Name"/>
-        <label for="Name">Название товара</label>
-    </div>
-    <div class="item">
-        <input type="text" id="Price" name="Price" />
-        <label for="Price">Цена</label>
-    </div>
-    <div class="item">
-        <input type="text" id="Quantity" name="Quantity"/>
-        <label for="Quantity">Количество</label>
-    </div>
-    <input type="submit" value="Отправить" />
-</form>
+@Html.Partial("AddItemFormPartialView")
+
+

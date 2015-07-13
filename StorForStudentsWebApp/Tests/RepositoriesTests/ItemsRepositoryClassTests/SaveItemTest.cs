@@ -9,6 +9,14 @@ namespace Tests.RepositoriesTests.ItemsRepositoryClassTests
     [TestClass]
     public class SaveItemTest
     {
+        [TestInitialize]
+        public void del()
+        {
+            using (var context = new StoreDbContext())
+            {
+                context.Set<Item>().SqlQuery("delete from Items");
+            }
+        }
 
         [TestMethod]
         public void SaveItem_saved_items_equals()
