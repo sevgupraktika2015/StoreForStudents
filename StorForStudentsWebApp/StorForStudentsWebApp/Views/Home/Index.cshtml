@@ -1,6 +1,11 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@using StorForStudentsWebApp.Models
+@model List<StorForStudentsWebApp.Models.ItemModel>
+
+@{
+    ViewBag.Title = "Главная страца";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>Список товаров</h2>
 
-  
+@Html.Partial("CatalogTableParticalView", Model)

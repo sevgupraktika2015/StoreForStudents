@@ -200,6 +200,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Controllers\Content\Site.css" />
+    <Content Include="Images\-1.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -254,6 +255,7 @@
     <Content Include="Views\AdminCatalog\Edit.cshtml" />
     <Content Include="Views\AdminCatalog\Details.cshtml" />
     <Content Include="Views\AdminCatalog\PagePartialView.cshtml" />
+    <Content Include="Views\Home\CatalogTableParticalView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

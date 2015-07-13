@@ -28,6 +28,8 @@ namespace StorForStudentsWebApp.Models
         public int Quantity { get; set; }
         public string Description { get; set; }
 
+        [Display (Name = "Изображение")]
+        [Required]
         public string ImagePath { get; set; }
         public Item ConvertToItem()
         {
@@ -40,21 +42,17 @@ namespace StorForStudentsWebApp.Models
 
         }
 
-        public ItemModel(Item item)
-        {
-            try
-            {
-                Asserts.IsNotNull(item);
-                Id = item.Id;
-                Name = item.Name;
-                Price = item.Price;
-                Quantity = item.Quantity;
-				Description = item.Description;
-           	    ImagePath = item.ImagePath;
-            }
-            catch
-            {
-
+        public ItemModel (Item item) {
+            Asserts.IsNotNull (item);
+            Id = item.Id;
+            Name = item.Name;
+            Price = item.Price;
+            Quantity = item.Quantity;
+            Description = item.Description;
+            if (string.IsNullOrEmpty (item.ImagePath)) {
+                ImagePath = @"..\..\images\-1.jpg";
+            } else {
+                ImagePath = item.ImagePath;
             }
         }
 
