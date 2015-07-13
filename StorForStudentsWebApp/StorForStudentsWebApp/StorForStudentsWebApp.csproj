@@ -166,6 +166,7 @@
     <Compile Include="Controllers\DeleteItemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\BucketPartialController.cs" />
+    <Compile Include="Controllers\Pager.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -232,10 +233,10 @@
     <Content Include="Views\Shared\_BucketPartial.cshtml" />
     <Content Include="Views\AdminCatalog\Edit.cshtml" />
     <Content Include="Views\AdminCatalog\Details.cshtml" />
+    <Content Include="Views\AdminCatalog\PagePartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\DeleteItem\" />
     <Folder Include="Views\LoginPartial\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,22 @@
+﻿@using StorForStudentsWebApp.Controllers
+@{
+    Pager pager = ViewBag.Pager;
+
+    if (pager.HasPreviousPage)
+    {
+        @Html.ActionLink("<<", "Index", new { page = pager.FirstPageIndex });
+    @Html.ActionLink("<", "Index", new { page = pager.PreviousPageIndex });
+    }
+
+    foreach (int page in ViewBag.Pager)
+    {
+        @Html.ActionLink(page.ToString(), "Index", new { page = page });
+    }
+
+    if (pager.HasNextPage)
+    {
+        @Html.ActionLink(">", "Index", new { page = pager.NextPageIndex });
+    @Html.ActionLink(">>", "Index", new { page = pager.LastPageIndex });
+    }
+}
+

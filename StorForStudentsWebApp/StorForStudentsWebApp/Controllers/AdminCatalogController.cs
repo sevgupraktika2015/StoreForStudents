@@ -13,16 +13,25 @@ namespace StorForStudentsWebApp.Controllers
     public class AdminCatalogController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
         // GET: AdminCatalog
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
+            ViewBag.Pager = Pager.Items(100).PerPage(10).Move(page ?? 1).Segment(5).Center();
             IList<ItemModel> itemList;
             using (var context = new StoreDbContext())
             {
                 ItemsRepository repository = new ItemsRepository(context);
                 itemList = ItemModel.ToModel(repository.GetAll());
             }
+            /*IList<ItemModel> resultList = null;
+            long i=0;
+            foreach (ItemModel itemModel in itemList)
+            {
+                if (i >= page * 15 && i < (page + 1) * 15)
+                    resultList.Add(itemModel);
+                i++;
+            }
+            return View("Index", new AdminCatalogViewModel(resultList));*/
             return View("Index", new AdminCatalogViewModel(itemList));
         }
 
@@ -52,7 +61,6 @@ namespace StorForStudentsWebApp.Controllers
                 ItemModel itemDTO = new ItemModel(item);
                 return View(itemDTO);
             }
-            return View();
         }
 
         public ActionResult Edit(int id)
