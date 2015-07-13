@@ -18,8 +18,6 @@ namespace Tests.ModelsTests
             Assert.IsNotNull(itemdto);
         }
 
-        [ExpectedException(typeof (ArgumentNullException))]
-
         [TestMethod]
         public void Constructor_null_exception()
         {

@@ -48,6 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mappings\ItemMap.cs" />
+    <Compile Include="Mappings\ItemsInOrderMap.cs" />
+    <Compile Include="Mappings\OrderMap.cs" />
+    <Compile Include="Repositories\ItemsInOrdersRepository.cs" />
+    <Compile Include="Repositories\OrdersRepository.cs" />
     <Compile Include="Repositories\StoreDbContext.cs" />
     <Compile Include="Repositories\ItemsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

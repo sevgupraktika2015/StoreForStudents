@@ -42,8 +42,7 @@ namespace StorForStudentsWebApp.Models
 
         }
 
-        public ItemModel (Item item) 
-        {
+        public ItemModel (Item item) {
             Asserts.IsNotNull (item);
             Id = item.Id;
             Name = item.Name;

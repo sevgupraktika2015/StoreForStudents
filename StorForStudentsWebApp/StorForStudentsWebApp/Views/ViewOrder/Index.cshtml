@@ -1,0 +1,10 @@
+﻿@model IEnumerable<StorForStudentsWebApp.Models.OrderModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ur orders, sweet potato</h2>
+@Html.Partial("UsersOrdersPartialView", @Model)
+
