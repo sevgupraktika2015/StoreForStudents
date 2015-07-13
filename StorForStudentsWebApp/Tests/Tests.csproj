@@ -74,12 +74,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ControllerTests\HomeControllerTests.cs" />
     <Compile Include="ControllerTests\SearchControllerTests.cs" />
     <Compile Include="ModelsTests\ItemModelTests.cs" />
     <Compile Include="ControllersTest\AddItemControllerTests\CreateTest.cs" />
     <Compile Include="ControllersTest\AdminCatalogControllerTests\IndexTest.cs" />
-    <Compile Include="ControllersTest\DeleteItemControllerTests\DeleteTest.cs" />
+    <Compile Include="ControllersTest\DeleteItemControllerTests\DeleteControllerTest.cs" />
     <Compile Include="ControllersTest\HomeControllerTests\HomeControllerIndexTest.cs" />
     <Compile Include="ControllersTest\SearchControllerTests\SearchControllerIndexTest.cs" />
     <Compile Include="ModelsTests\OrderModelTests.cs" />
@@ -89,6 +88,7 @@
     <Compile Include="RepositoriesTests\ItemsRepositoryClassTests\SaveItemTest.cs" />
     <Compile Include="RepositoriesTests\ItemsRepositoryClassTests\DeleteTest.cs" />
     <Compile Include="RepositoriesTests\OrdersRepositoryClassTests\ConstructorTest.cs" />
+    <Compile Include="RepositoriesTests\ItemsRepositoryClassTests\DeleteRepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -109,7 +109,9 @@
       <Name>StorForStudentsWebApp</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ModelsTests\UserModelTests\" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

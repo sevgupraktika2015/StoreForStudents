@@ -8,3 +8,8 @@
 
 <h2>Панель администратора. Редактор товаров.</h2>
 @Html.Partial("AdminCatalogTablePartialView", Model.itemList)
+
+
+<div>
+    @Html.ActionLink("Добавить элемент", "Index", "AddItem")
+</div>

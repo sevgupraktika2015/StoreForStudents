@@ -178,6 +178,7 @@
     <Compile Include="Controllers\AdminCatalogController.cs" />
     <Compile Include="Controllers\DeleteItemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\BucketPartialController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ViewOrderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -237,11 +238,9 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Search\FoundItems.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\AdminCatalog\Index.cshtml" />
-    <Content Include="Views\AddItem\Create.cshtml" />
     <Content Include="Views\AddItem\Index.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\AdminCatalog\AdminCatalogTablePartialView.cshtml" />
@@ -249,10 +248,15 @@
     <Content Include="Views\ViewOrder\UsersOrdersPartialView.cshtml" />
     <Content Include="Views\ViewOrder\Details.cshtml" />
     <Content Include="Views\ViewOrder\ItemsInOrderPartialView.cshtml" />
+    <Content Include="Views\AddItem\AddItemFormPartialView.cshtml" />
+    <Content Include="Views\Shared\_BucketPartial.cshtml" />
+    <Content Include="Views\AdminCatalog\Edit.cshtml" />
+    <Content Include="Views\AdminCatalog\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\DeleteItem\" />
+    <Folder Include="Views\LoginPartial\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
